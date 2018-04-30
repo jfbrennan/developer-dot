@@ -16,18 +16,18 @@ CRUSH Digital Edition gives accounting professionals access just some of the exp
 <div class="mobile-table">
   <table class="styled-table">
     <tr>
-      <td>Make Sales Tax a Strategy, not an Afterthought</td>
-      <td>Judy Vorndran, Tax Ops</td>
-      <td>April 3rd, 2018</td>
-      <td>10:00 AM MST</td>
-      <td><a href="https://www.cpaacademy.org/webinars/a0D4400000Uo1j1EAB">CPAacademy.org</a></td>
+      <td>Managing Inventory in QuickBooks Desktop</td>
+      <td>Hector Garcia, Quick Bookkeeping & Accounting</td>
+      <td>April 18th, 2018</td>
+      <td>11:00 AM MST</td>
+      <td><a href="https://www.cpaacademy.org/webinars/a0D4400000VIdx1EAD">CPAacademy.org</a></td>
     </tr>
     <tr>
-      <td>Salestaxmageddon: The Day After</td>
-      <td>Brian Weaver, Brian Weaver Consulting LLC</td>
-      <td>April 4th, 2018</td>
-      <td>11:00 AM MST</td>
-      <td><a href="https://www.cpaacademy.org/webinars/a0D4400000UqekJEAR">CPAacademy.org</a></td>
+      <td>QB Online Bank Feeds – Automating your Bookkeeping</td>
+      <td>Hector Garcia, Quick Bookkeeping & Accounting</td>
+      <td>April 23rd, 2018</td>
+      <td>10:00 AM MST</td>
+      <td><a href="https://www.cpaacademy.org/webinars/a0D4400000VIdydEAD">CPAacademy.org</a></td>
     </tr>
     <tr>
       <td>How to Start the Sales and Use Tax Conversation with a Client</td>
@@ -49,6 +49,13 @@ CRUSH Digital Edition gives accounting professionals access just some of the exp
       <td>April 25th, 2018</td>
       <td>1:00 PM MST</td>
       <td><a href="https://www.cpaacademy.org/webinars/a0D4400000UqXDvEAN">CPAacademy.org</a></td>
+    </tr>
+    <tr>
+      <td>Sales and Use Tax for Digital Products and Services </td>
+      <td>Joe Endres, Hodgson Russ Attorneys</td>
+      <td>May 1st, 2018</td>
+      <td>2:00 PM MST</td>
+      <td><a href="https://www.cpaacademy.org/webinars/a0D4400000UqiYKEAZ">CPAacademy.org</a></td>
     </tr>
     <tr>
       <td>Ecommerce Essentials #1 All Things Nexus- What Does it Mean, How Does it Work, and Who Should Care</td>
@@ -107,6 +114,13 @@ CRUSH Digital Edition gives accounting professionals access just some of the exp
       <td><a href="https://www.cpaacademy.org/webinars/a0D4400000Uqkz2EAB">CPAacademy.org</a></td>
     </tr>
     <tr>
+      <td>Benefits of Implementing Value Pricing for the Small Firm  </td>
+      <td>Hector Garcia, Quick Bookkeeping & Accounting</td>
+      <td>May 11th, 2018</td>
+      <td>10:00 AM MST</td>
+      <td><a href="https://www.cpaacademy.org/webinars/a0D4400000VIdy4EAD">CPAacademy.org</a></td>
+    </tr>
+    <tr>
       <td>The Riches are in the Niches</td>
       <td>Danetha Doe, Danetha Doe Consulting Group</td>
       <td>May 11th, 2018</td>
@@ -161,6 +175,11 @@ The CRUSHDC 2018 Digital Edition includes self-study courses you can use at any 
       <td>Tax Compliance Nuts & Bolts #2: Taxability Determinations</td>
       <td>Carolynn Kranz, Industry Sales Tax Solutions</td>
       <td><a href="https://www.cpaacademy.org/self_study_show/a0D4400000TZNkREAX">CPAacademy.org</a></td>
+    </tr>
+    <tr>
+      <td>Tax Compliance Nuts & Bolts #3: Situsing the Sale</td>
+      <td>Carolynn Kranz, Industry Sales Tax Solutions</td>
+      <td><a href="https://www.cpaacademy.org/webinars/a0D4400000VJ0zoEAD">CPAacademy.org</a></td>
     </tr>
     <tr>
       <td>Tax Compliance Nuts & Bolts #4: Audit Management</td>
