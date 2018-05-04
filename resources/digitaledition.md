@@ -16,48 +16,6 @@ CRUSH Digital Edition gives accounting professionals access just some of the exp
 <div class="mobile-table">
   <table class="styled-table">
     <tr>
-      <td>Managing Inventory in QuickBooks Desktop</td>
-      <td>Hector Garcia, Quick Bookkeeping & Accounting</td>
-      <td>April 18th, 2018</td>
-      <td>11:00 AM MST</td>
-      <td><a href="https://www.cpaacademy.org/webinars/a0D4400000VIdx1EAD">CPAacademy.org</a></td>
-    </tr>
-    <tr>
-      <td>QB Online Bank Feeds – Automating your Bookkeeping</td>
-      <td>Hector Garcia, Quick Bookkeeping & Accounting</td>
-      <td>April 23rd, 2018</td>
-      <td>10:00 AM MST</td>
-      <td><a href="https://www.cpaacademy.org/webinars/a0D4400000VIdydEAD">CPAacademy.org</a></td>
-    </tr>
-    <tr>
-      <td>How to Start the Sales and Use Tax Conversation with a Client</td>
-      <td><img src="/public/images/crushdc_silver.png" width="30" height="30" align="right" alt="CRUSHDC 2018 Silver Sponsor" />Monika Miles, Miles Consulting</td>
-      <td>April 24th, 2018</td>
-      <td>10:00 AM MST</td>
-      <td><a href="https://www.cpaacademy.org/webinars/a0D4400000Uqdc6EAB">CPAacademy.org</a></td>
-    </tr>
-    <tr>
-      <td>The Future of Accounting</td>
-      <td>Danetha Doe, Danetha Doe Consulting Group</td>
-      <td>April 25th, 2018</td>
-      <td>12:00 PM MST</td>
-      <td><a href="https://www.cpaacademy.org/webinars/a0D4400000UqcWhEAJ">CPAacademy.org</a></td>
-    </tr>
-    <tr>
-      <td>How to Make Money Doing Sales Tax Returns</td>
-      <td>Andrew Johnson, Peisner Johnson</td>
-      <td>April 25th, 2018</td>
-      <td>1:00 PM MST</td>
-      <td><a href="https://www.cpaacademy.org/webinars/a0D4400000UqXDvEAN">CPAacademy.org</a></td>
-    </tr>
-    <tr>
-      <td>Sales and Use Tax for Digital Products and Services </td>
-      <td>Joe Endres, Hodgson Russ Attorneys</td>
-      <td>May 1st, 2018</td>
-      <td>2:00 PM MST</td>
-      <td><a href="https://www.cpaacademy.org/webinars/a0D4400000UqiYKEAZ">CPAacademy.org</a></td>
-    </tr>
-    <tr>
       <td>Ecommerce Essentials #1 All Things Nexus- What Does it Mean, How Does it Work, and Who Should Care</td>
       <td><img src="/public/images/crushdc_silver.png" width="30" height="30" align="right" alt="CRUSHDC 2018 Silver Sponsor" />Joni Johnson-Powe, Taxnologi</td>
       <td>May 4th, 2018</td>
@@ -97,7 +55,7 @@ CRUSH Digital Edition gives accounting professionals access just some of the exp
       <td>Dawn W. Brolin, Powerful Accounting</td>
       <td>May 10th, 2018</td>
       <td>12:00 PM MST</td>
-      <td>Link coming Soon!</td>
+      <td><a href="https://www.cpaacademy.org/webinars/a0D4400000VI1axEAD">CPAacademy.org</a></td>
     </tr>
     <tr>
       <td>Cryptocurrency - How Does It Impact Your Firm and Your  Clients</td>

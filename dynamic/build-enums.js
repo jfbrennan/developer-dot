@@ -28,10 +28,20 @@ function tableBody(attr) {
     });
 
     return Object.keys(values).reduce((html, k) => {
+        let temp = values[k].split('`');
+
+        temp.map(w => {
+            if (!/\s/g.test(w)) {
+                temp[temp.indexOf(w)] = '<code class="markdown">' + w + '</code>';
+            }
+        });
+
+        temp = temp.join(' ');
+
         return `${html}
         <tr>
             <td>${k}</td>
-            <td>${values[k]}</td>
+            <td>${temp}</td>
         </tr>`;
     }, '');
 }

@@ -5,6 +5,7 @@ function insertAvaForm() {
 function submitShort() {
     const inputArr = $('#trial-form')[0];
     let failCount = 0;
+    let conditionsReadAndAccept = false;
 
     for (let i = 0; i < (inputArr.length - 1); i++) {
         const input = inputArr[i];
@@ -28,14 +29,13 @@ function submitShort() {
     }
 
     if($('#terms-and-conditions').is(':checked')) {
+        conditionsReadAndAccept = true
     } else {
         $('#ava-form-info').html('<strong>Please accept our terms and conditions.</strong>');
         $('#ava-form-alert').attr('class', 'alert alert-warning fade in');
         $('#ava-form-alert').show();
         return;
     }
-
-
 
     var c_id = null;
 
@@ -59,7 +59,9 @@ function submitShort() {
             region: $('#region').val(),
             country: $('#country').val(),
             postalCode: $('#postal-code').val()
-        }
+        },
+        haveReadAvalaraTermsAndConditions: conditionsReadAndAccept,
+        acceptAvalaraTermsAndConditions: conditionsReadAndAccept
     };
 
     // console.log("payload: ", JSON.stringify(payload));
