@@ -40,7 +40,16 @@ script:
   - npm run test
   - docker-compose up --abort-on-container-exit --exit-code-from server
 after_success:
-  - if [ -n "$secret_key" ] && [ "$TRAVIS_BRANCH" == "master" ]; then bucket_name=developer.avalara.com s3_website push; fi
+  - if [ -n "$secret_key" ] && [ "$TRAVIS_BRANCH" == "master" ];
+      then bucket_name=developer.avalara.com 
+          s3_website push; fi
+  - if [ -n "$secret_key" ] && [ "$TRAVIS_BRANCH" == "develop" ];
+      then 
+        bucket_name=staging-developer.avalara;
+        cloudfront_distribution_id=E1VB4YGCMCEIX2;
+        s3_website push;
+    fi
+
 
 before_deploy:
   - find _site -iname "*.html" -exec sed -i -e 's/=\"\//=\"\/developer-dot\//g' {} \;
