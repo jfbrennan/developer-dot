@@ -5,7 +5,7 @@ description: Release Notes for the May 2017 update to the AvaTax REST v2 API.
 date: 2017-04-25 16:00
 author: Ted Spence
 comments: true
-categories: [Sales Tax APIs]
+categories: [avatax, patch notes]
 product: blog
 doctype: blog
 disqus: 1
@@ -13,23 +13,25 @@ disqus: 1
 
 This article is about the May 2017 monthly update to the AvaTax REST v2 API.
 
-<table class="styled-table">
-	<tr>
-		<th>Environment</th>
-		<th>URL</th>
-		<th>Release Date</th>
-	</tr>
-	<tr>
-		<td>Sandbox</td>
-        <td><a href="https://sandbox-rest.avatax.com">https://sandbox-rest.avatax.com</a></td>
-		<td>2017-05-02</td>
-	</tr>
-	<tr>
-		<td>Production</td>
-        <td><a href="https://rest.avatax.com">https://rest.avatax.com</a></td>
-		<td>2017-05-08</td>
-	</tr>
-</table>
+<div class="mobile-table">
+    <table class="styled-table">
+        <tr>
+            <th>Environment</th>
+            <th>URL</th>
+            <th>Release Date</th>
+        </tr>
+        <tr>
+            <td>Sandbox</td>
+            <td><a href="https://sandbox-rest.avatax.com">https://sandbox-rest.avatax.com</a></td>
+            <td>2017-05-02</td>
+        </tr>
+        <tr>
+            <td>Production</td>
+            <td><a href="https://rest.avatax.com">https://rest.avatax.com</a></td>
+            <td>2017-05-08</td>
+        </tr>
+    </table>
+</div>
 
 <h3>API Updates: New Tax Types</h3>
 
@@ -68,8 +70,8 @@ These changes affect temporary document types only.  Temporary document types ar
 The AvaTax 30-day free trial now includes Landed Cost functionality.  Try it out now!  For more information about how to use Landed Cost to handle importing products across borders, please see the blog series:
 
 <ul class="normal">
-    <li><a href="http://developer.avalara.com/blog/2016/10/13/landedcost-with-rest-v2">LandedCost Basics</a></li>
-    <li><a href="http://developer.avalara.com/blog/2016/12/15/landed-cost-who-pays">Landed Cost - Delivered At Place vs Delivered Duty Paid</a></li>
+    <li><a href="/blog/2016/10/13/landedcost-with-rest-v2">LandedCost Basics</a></li>
+    <li><a href="/blog/2016/12/15/landed-cost-who-pays">Landed Cost - Delivered At Place vs Delivered Duty Paid</a></li>
 </ul>
 
 <h3>Returns API Improvements</h3>

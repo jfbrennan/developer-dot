@@ -34,4 +34,4 @@ Bearer Token authentication is not yet supported with this API.
 
 The API you are calling has not yet been updated to work with Bearer Token authentication.
 
-Avalara is currently working to implement Bearer Token authentication across all of its applications.  Please see <a href="http://developer.avalara.com/avatax/authentication-in-rest/">Authentication In REST</a> for more information about authentication.
+Avalara is currently working to implement Bearer Token authentication across all of its applications.  Please see <a href="/avatax/authentication-in-rest/">Authentication In REST</a> for more information about authentication.

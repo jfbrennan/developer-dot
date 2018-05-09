@@ -6,50 +6,65 @@ const mapStateToProps = (state, ownProps) => {
     return {
         apiType: state.apiType,
         sampleContentType: state.sampleContentType,
-        endpoint: ownProps.endpoint
+        endpoint: ownProps.endpoint,
+        tagName: ownProps.tagName,
+        userProfile: state.userProfile
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        onAccessTokenExpiration: () => {
+            dispatch(actions.accessTokenExpiration());
+        },
         onFillConsoleSampleData: (endpointId) => {
             dispatch(actions.fillConsoleSampleData(endpointId));
         },
-        onSubmitConsoleRequest: (endpoint) => {
+        onSubmitConsoleRequest: (endpoint, userProfile) => {
             /* If our endpoint has a defined proxy, use that to make our API console request
             * Otherwise, just use the path specified as `host` in Swagger file
             */
-
-            // create either a proxied or normal API request
-            let apiRequest;
-
-            if (endpoint.proxy) {
-                // Api Reference has complex pathParam/queryString structure (example, fieldType, etc.)
-                // Just want key value pairs that our recipes use
-                apiRequest = submitProxiedRequest.bind(null, {
-                    proxy: endpoint.proxy,
-                    action: endpoint.action,
-                    path: endpoint.path,
-                    queryString: reduceParamsToKeyValuePair(endpoint.queryString),
-                    pathParams: reduceParamsToKeyValuePair(endpoint.pathParams),
-                    postBody: endpoint.postBody || {}
-                });
+            // Api Reference has complex pathParam/queryString structure (example, fieldType, etc.)
+            if (endpoint.consoleError) {
+                dispatch(actions.consoleError(endpoint.id));
             } else {
-                const url = (endpoint.pathParams ? replaceStringPlaceholders(endpoint.path, reduceParamsToKeyValuePair(endpoint.pathParams)) : endpoint.path) + (endpoint.qsPath || '');
-                const postBody = endpoint.postBody || null;
+                // create either a proxied or normal API request
+                let apiRequest;
 
-                apiRequest = submitApiRequest.bind(null, url, endpoint.action, postBody);
+                if (endpoint.proxy &&
+                    !(userProfile && userProfile.toggled)) {
+                    // Api Reference has complex pathParam/queryString structure (example, fieldType, etc.)
+                    apiRequest = submitProxiedRequest.bind(null, {
+                        proxy: endpoint.proxy,
+                        action: endpoint.action,
+                        path: endpoint.path,
+                        queryString: reduceParamsToKeyValuePair(endpoint.queryString),
+                        pathParams: reduceParamsToKeyValuePair(endpoint.pathParams),
+                        postBody: endpoint.postBody || {}
+                    });
+                } else {
+                    const url = (endpoint.pathParams ? replaceStringPlaceholders(endpoint.path, reduceParamsToKeyValuePair(endpoint.pathParams)) : endpoint.path) + (endpoint.qsPath || '');
+                    const postBody = endpoint.postBody || null;
+
+                    apiRequest = submitApiRequest.bind(null, url, endpoint.action, postBody, userProfile);
+                }
+                // Show Animation here until promise or isLoading comes back or w/e
+                dispatch(actions.consoleLoadingAnimation(endpoint.id));
+
+                apiRequest()
+                    .then((apiResponse) => {
+                        dispatch(actions.submitConsoleRequest(endpoint.id, apiResponse.body, apiResponse.status, apiResponse.statusMessage));
+                    })
+                    .catch((err) => {
+                        dispatch(actions.submitConsoleRequest(endpoint.id, err, err.message, err.message));
+                    });
             }
-            apiRequest()
-            .then((apiResponse) => {
-                dispatch(actions.submitConsoleRequest(endpoint.id, apiResponse.body, apiResponse.status, apiResponse.statusMessage));
-            })
-            .catch((err) => {
-                dispatch(actions.submitConsoleRequest(endpoint.id, err, err.message, err.message));
-            });
         },
         onPostBodyInputChanged: (endpointId, paramName, newValue) => {
             dispatch(actions.postBodyInputChanged(endpointId, paramName, newValue));
+        },
+        onRequestChanged: (endpointId, newValue) => {
+            dispatch(actions.requestChanged(endpointId, newValue));
         },
         onResetConsole: (endpointId) => {
             dispatch(actions.resetConsole(endpointId));
@@ -65,6 +80,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         onRemovePostbodyCollectionItem: (paramName, endpointId) => {
             dispatch(actions.removePostbodyCollectionItem(paramName, endpointId));
+        },
+        onToggleAiForRequest: () => {
+            dispatch(actions.toggleAiForRequest());
         },
         onToggleShowExcludedPostBodyProps: (endpointId) => {
             dispatch(actions.toggleShowExcludedPostBodyProps(endpointId));

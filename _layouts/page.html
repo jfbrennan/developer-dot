@@ -1,16 +1,68 @@
 ---
 layout: default
 ---
-
-{% if page.blog_breadcrumb == 1 or page.doctype == 'blog' %}
-{% include blog_breadcrumb.html %}
+{% if page.doctype == 'archive' %}
+{% else %}
+  {% if page.blog_breadcrumb == 1 or page.doctype == 'blog' %}
+    {% include blog_breadcrumb.html %}
+    <div class="row padding-sides half">
+      <nav class="col-md-3">
+        {% include blog_navigation.html %}
+      </nav>
+      <main class="col-md-9 small-no-padding">
+        <h4>
+          {{ page.title }}
+          {% if page.subtitle %}<small>{{ page.subtitle }}</small>{% endif %}
+        </h4>
+        {{ content }}
+      </main>
+    </div>
+  {% elsif page.product =='webinars' or page.doctype == 'webinar' %}
+  <div class="row padding-sides half">
+    <nav class="col-md-3">
+      <ul class = "api-ref-side-nav nav nav-pills nav-stacked hidden-xs hidden-sm">
+        <h4>Categories</h4>
+        <h5>
+          <li {% if page.url=="/resources/webinars/" %}class="active" {% endif %}>
+            <a class="capitalize" href="/resources/webinars/">Upcoming Webinars</a>
+          </li>
+          <li {% if page.url=="/resources/past_webinars/" %}class="active" {% endif %}>
+            <a class="capitalize" href="/resources/recordings/">Recordings</a>
+          </li>
+        </h5>
+      </ul>
+    </nav>
+    <main class="col-md-9 small-no-padding">
+      <h4>
+        {{ page.title }}
+        {% if page.subtitle %}<small>{{ page.subtitle }}</small>{% endif %}
+      </h4>
+      {{ content }}
+    </main>
+  </div>
+  {% elsif page.doctype =='dev_guide' %}
+    <div class="row padding-sides half">
+      <nav class="col-md-3">
+        {% include dev-guide_navigation.html %}
+      </nav>
+      <main class="col-md-9 small-no-padding">
+        <h1>
+            {{ page.title }}
+            {% if page.subtitle %}<small>{{ page.subtitle }}</small>{% endif %}
+        </h1>
+        {{ content }}
+      </main>
+    </div>
+    {% else %}
+    <h1>{{ page.title }}
+        {% if page.subtitle %}<h2>{{ page.subtitle }}</h2>{% endif %}
+    </h1>
+{{ content }}
+{% endif %}
 {% endif %}
 
-<h1>{{ page.title }}
-    {% if page.subtitle %}<small>{{ page.subtitle }}</small>{% endif %}
-</h1>
 
-{{ content }}
+
 
 {% if page.community %}
 {% include community.html %}

@@ -5,45 +5,24 @@ product: avaTax
 doctype: use_cases
 nav: apis
 ---
-<h3>Account Provisioning and Company Management</h3>
-The Onboarding API allows Avalara partners to create customer accounts, company profiles, and user credentials.
-<h4>What You Can Do</h4>
-This API allows partners to automatically provision individual customer accounts and assist with company profile setup on those accounts, allowing for a quick, automated account setup for these customers.
-<h4>Get API Key</h4>
-To get access to this API, contact your Customer Account Manager or email <a href="mailto:developer@avalara.com">developer@avalara.com</a>.
-<h4>Documentation</h4>
-Here is the <a href="/avatax/api-reference/onboarding/v1/">Onboarding API Documentation</a> for the RESTful Onboarding API. This API is designed so that a single operation represents a group of provisioning steps; an account can be provisioned with a company and single location (with associated nexus) and a single admin user with a single POST /accounts.
 
-<h3>Develop Your Integration</h3>
-Once you have access to the Onboarding API, there are a number of options and simplifications you can present to your users.
-<h4>Provisioning Workflow</h4>
-<h4>Registered in more than one jurisdiction?</h4>
-Account creation also creates a default company, with a single-location nexus set up. This tax registration (nexus) reflects all triggered jurisdictions for the provided merchant address. If the merchant needs to collect sales tax in additional locations (e.g. other states), nexus needs to be set up in those jurisdictions as well. You can call POST /nexus with additional addresses to set nexus associated with those merchant addresses. If a merchant prefers to choose nexus jurisdictions by name (rather than triggering them by address), they should set up their nexus in the Avalara Admin Console.
-<h4>Why Set Locations?</h4>
-When a company is created, a single location is also created. If a merchant needs to report out sales by physical location within a single jurisdiction (note: this is uncommon), additional locations should be created. Locations do not need to represent every merchant origin address, or every end-customer address (in fact, they should never represent an end-customer address).
-<h4>Credential Management</h4>
-Provisioning an account creates the account number and license key required to call that account. This credential information is returned in the response to POST /accounts. You should store this information in a secure, merchant-specific location. The merchant will also be emailed this credential information, but since it is specifically used for calling the AvaTax API (separate credentials are issued to the merchant to log in to the Avalara Admin Console), it is most useful when entered in your connector.
-<h4>Processing Payment</h4>
-Currently only free trial accounts can be created through the Onboarding API. Payment information does not need to be collected or provided to provision free trial accounts.
-<h4>Product Attachment</h4>
-If a merchant wants to upgrade from a free trial account to a full account, or to add additional services (tax return filing, certificate management) to their existing paid account, they should reach out to Avalara directly. Product attachment is not currently supported through the Onboarding API.
+# Account Provisioning and Company Management
 
+The [AvaTax REST API](/api-reference/avatax/rest/v2/) allows Avalara partners to create customer accounts, quickly set up company tax profiles, or add new users to an account.  These features can help you build a connector that automatically allows a customer to set up their AvaTax integration right in your installation user interface!
 
-<h3>Provisioning Workflow</h3>
-When provisioning customer accounts with the onboarding API, you must perform various provisioning steps in a specific order.
-<h4>Request 1: /accounts</h4>
-The first request in the workflow creates a single account with:
-<ul>
-	<li>one Account Admin-level user</li>
-	<li>one default company profile</li>
-	<li>one defined location</li>
-	<li>tax registration (nexus) designated for the single location</li>
-</ul>
-The account will be a free or paid account depending on the ProductRatePlan information provided in the request.
-The credentials for this account will be returned in the response, an should be stored for use in future calls to set up company profile elements, and to calculate tax.
-<h4>Request 2: /companies</h4>
-Once the account is provisioned, additional companies can be created.
-<h4>Request 3: /locations</h4>
-If a company requires more than one reportable location, additional locations can be defined.
-<h4>Request 4: /nexus</h4>
-If a company requires more than one nexus location, additional nexus can be set.
+To begin using the automated provisioning features of AvaTax, here's what you need to know.
+
+* To obtain a free trial account, please use the [RequestFreeTrial API](/api-reference/avatax/rest/v2/methods/Free/RequestFreeTrial/).  This API allows a customer to obtain a free AvaTax trial account at any time without any prior approval or review.  Everyone is welcome to try out AvaTax!
+* The free trial API configures a basic account with a very simple setup.  To customize your new account setup process, you would use the [RequestNewAccount API](/api-reference/avatax/rest/v2/methods/Onboarding/RequestNewAccount/) which offers more features.  This API is available to certified partners and connector developers; to obtain certification, please contact [Avalara Sales](https://www.avalara.com/signup/) to request approval as a certified partner or developer.
+* To quickly set up a single company, use the [CompanyInitialize API](/api-reference/avatax/rest/v2/methods/Companies/CompanyInitialize/).  This API helps you set up a single company, with a single physical location, with a single API call.  
+* If a customer needs a more complex company configuration, you should direct customers to the [AvaTax Website](https://admin.avalara.com).  You should put a hyperlink into your installation program that asks the user if they would like to set up a complete tax profile for their company.  If the click the link, please launch a web browser targeted to the AvaTax Website at [https://admin.avalara.com](https://admin.avalara.com).  The customer will then see a user-friendly process that guides them through setting up their company's tax configuration.
+
+The full steps involved in configuring a tax profile can be challenging.  We encourage you to allow your customers to complete very simple configuration through the CompanyInitialize API; if the customer requires anything more complex, they should use the AvaTax website.
+
+# Payment Methods
+
+Creating a new account does not require that the customer provide payment details.  The customer is encouraged to experiment with AvaTax - no commitment is required.  When they are satisfied that Avalara does tax compliance right, we will be happy to work with them to upgrade their account with whatever features and functionality they require.
+
+# Need More?
+
+We'd be happy to speak with you to help you use the AvaTax API to design a great experience for your integrated tax functionality.  Please [open a case](https://help.avalara.com/Directory/Contact_Us/Submit_a_Case) and we will put you in touch with the right team within Avalara to help you design an integrated workflow.

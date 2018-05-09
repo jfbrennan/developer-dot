@@ -4,7 +4,7 @@ title: REST API Makes AvaTax Integration Easy
 date: 2012-03-09 08:49
 author: will.frei
 comments: true
-categories: [rest api, sales tax, Sales Tax APIs]
+categories: [older]
 product: avaTax
 doctype: blog
 ---
@@ -13,7 +13,7 @@ AvaTax gives you fast and up-to-date sales tax calculation based on geo-location
 
 Our REST API provides the power of Avalara's calculation engine to your application. Three advantages of using our REST API, which supports both JSON and XML message formats:
 
-<ul>
+<ul class="normal">
 	<li>Quick and flexible interface</li>
 	<li>Code easily with query strings</li>
 	<li>No need for internal server</li>

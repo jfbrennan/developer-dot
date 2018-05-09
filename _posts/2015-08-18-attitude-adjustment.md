@@ -4,7 +4,7 @@ title: Attitude Adjustment
 date: 2015-08-18 14:55
 author: anya.stettler
 comments: true
-categories: [Sales Tax APIs]
+categories: [older]
 product: avaTax
 doctype: blog
 ---
@@ -31,7 +31,7 @@ No! It really is the best way to tackle these kinds of scenarios! Consider the 
 	<li>If the period was filed by Avalara, your document is locked and cannot be edited in any way (including voiding).</li>
 </ol>
 Ok, so we can't do anything with the original document. That means the only way to get that money off the reports is to net it out with a negative entry. What does this let me do? Whatever you need to! As far as we're concerned, this is a whole new transaction, so you can reverse it any way you like, including:
-<ul>
+<ul class="normal">
 	<li>Reversing the tax only on a transaction (if a customer claimed an exemption after being invoiced)</li>
 	<li>Reversing sale amounts inclusive of tax</li>
 	<li>Reversing sale amounts exclusive of tax</li>

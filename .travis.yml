@@ -1,34 +1,62 @@
 language: ruby
 rvm:
-  - 2.1
+  - 2.2
+
+services:
+  - docker
+
+cache:
+  bundler: true
 
 before_install:
   - nvm install 6.0
+  # docker specific update and install
+  - sudo apt-get update
+  - sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo apt-key fingerprint 0EBFCD88
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - sudo apt-get update
+  - sudo apt-get install -y docker-ce
+  - sudo rm /usr/local/bin/docker-compose
+  - sudo curl -L curl -L https://github.com/docker/compose/releases/download/1.12.0/docker-compose-Linux-x86_64 > ./docker-compose
+  - chmod +x docker-compose
+  # without overwriting here docker-compose will be v1.8.1
+  - sudo mv docker-compose /usr/local/bin
+  - docker-compose -v
+  - docker -v
 install:
   - gem install jekyll
   - gem install s3_website
-script:
-  - npm install
   - bundle install
-  - npm run build && bundle exec jekyll build
+  - npm i --progress=false --silent
+before_script:
+  - uname -a
+  - export JAVA_OPTS="-Xmx1G"
+  - echo $JAVA_OPTS
+  - alias java="java -Xmx1G"
+script:
+  - npm run lint
+  - npm run test
+  - docker-compose up --abort-on-container-exit --exit-code-from server
 after_success:
-  - if [ -n "$ALGOLIA_API_KEY" ]; then bundle exec jekyll algolia push; fi
-  - if [ -n "$secret_key" ] && [ "$TRAVIS_BRANCH" == "master" ]; then bucket_name=developer.avalara.com s3_website push; fi
+  - if [ -n "$secret_key" ] && [ "$TRAVIS_BRANCH" == "master" ];
+      then bucket_name=developer.avalara.com 
+          s3_website push; fi
+  - if [ -n "$secret_key" ] && [ "$TRAVIS_BRANCH" == "develop" ];
+      then 
+        bucket_name=staging-developer.avalara;
+        cloudfront_distribution_id=E1VB4YGCMCEIX2;
+        s3_website push;
+    fi
+
+
+before_deploy:
+  - find _site -iname "*.html" -exec sed -i -e 's/=\"\//=\"\/developer-dot\//g' {} \;
+  - find _site -iname "style.css" -exec sed -i -e 's/url(\"\//url(\"\/developer-dot\//g' {} \;
+  - find _site -iname "style.css" -exec sed -i -e 's/url(\//url(\/developer-dot\//g' {} \;
 
 deploy:
-  # deploy none master to production
-  - provider: s3
-    access_key_id: $access_key
-    secret_access_key: $secret_key
-    bucket: "pr.developer.avalara.com"
-    skip_cleanup: true
-    region: us-west-2
-    local_dir: _site
-    upload-dir: $TRAVIS_BRANCH
-    acl: public_read
-    on:
-      all_branches: true
-      condition: "$TRAVIS_BRANCH != master"
 
   - deploy:
     provider: pages

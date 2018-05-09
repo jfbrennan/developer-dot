@@ -9,7 +9,7 @@ disqus: 1
 
 <h3>Validate and normalize addresses for sales tax calculation.</h3>
 
-Explicit address validations are standalone address validation calls to the <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Addresses/ResolveAddress"><strong>ResolveAddress</strong></a> API. This API provides address resolution only, and does not calculate taxes.  It returns success if it was able to identify the address and provide information about it; if insufficient information was provided, the API will respond with an error code.
+Explicit address validations are standalone address validation calls to the <a href="/api-reference/avatax/rest/v2/methods/Addresses/ResolveAddressPost/"><strong>ResolveAddress</strong></a> API. This API provides address resolution only, and does not calculate taxes.  It returns success if it was able to identify the address and provide information about it; if insufficient information was provided, the API will respond with an error code.
 
 A typical address validation call might provide some incomplete information about an address.  In this example below, the street is identified by a partial name, and no postal code is provided.
 
@@ -113,6 +113,6 @@ Address Resolution and Transactions both use the same code.  When you call `/api
 
 The address validation logic follows the flow chart below:
 
-<img src="/public/images/devdot/DevDot_TaxCallDiagram.svg" width="100%" alt="Address resolution during tax calculation" />
+<img src="/public/images/devdot/DevDot_TaxCallDiagram.png" width="100%" alt="Address resolution during tax calculation" />
 
 Even in the case that an address cannot be fully resolved, AvaTax will use the best available geocoding information for tax calculation purposes.  While a fully validated street address is always better and more accurate, taxing jurisdictions can usually be determined if city, state and zip code are provided.

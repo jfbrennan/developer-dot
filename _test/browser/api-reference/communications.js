@@ -1,41 +1,34 @@
+const NUMAPIS = 3;
+let expectedNumberOfApiEndpoints;
+
 module.exports = {
-    'baseURL': process.env.BASEURL ? process.env.BASEURL.replace(/\/$/, '') : 'http://localhost:4000',
-    'waitTime': isNaN(parseInt(process.env.TIMEOUT, 10)) ? 5000 : parseInt(process.env.TIMEOUT, 10),
-    'before': function() {
-        /* eslint-disable no-console */
-        console.log('WaitTime set to', this.waitTime);
-        console.log('BaseURL set to', this.baseURL);
-        /* eslint-enable no-console */
+    'before': function(browser) {
+        browser.maximizeWindow();
+    },
+
+    'after': function(browser) {
+        browser.end();
     },
 
     'API Reference: Communications: SOAP (verify number of endpoints)': function(browser) {
-        const expectedNumberOfApiEndpoints = 13;
+        expectedNumberOfApiEndpoints = 42;
 
         browser
-            .maximizeWindow()
-            .url(this.baseURL + '/communications/api-reference/saas/soap/')
-            .waitForElementVisible('[data-reactroot]', this.waitTime)
-
-            .elements('css selector', '.endpoint-summary', function(result) {
-                /* eslint-disable no-invalid-this */
-                this.assert.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
-                /* eslint-enable no-invalid-this */
-            })
-            .end();
+            .initialize(browser.globals.baseURL + '/api-reference/communications/afc/methods/CalcAdjWithFipsCode/')
+            .apiReference.methods.layout(NUMAPIS, expectedNumberOfApiEndpoints);
     },
     'API Reference: Communications: Geocoding SOAP (verify number of endpoints)': function(browser) {
-        const expectedNumberOfApiEndpoints = 4;
+        expectedNumberOfApiEndpoints = 5;
 
         browser
-            .maximizeWindow()
-            .url(this.baseURL + '/communications/api-reference/geocode/soap/')
-            .waitForElementVisible('[data-reactroot]', this.waitTime)
+            .initialize(browser.globals.baseURL + '/api-reference/communications/afc-geo/methods/GeocodeLatLong/')
+            .apiReference.methods.layout(NUMAPIS, expectedNumberOfApiEndpoints);
+    },
+    'API Reference: Communications: REST (verify number of endpoints)': function(browser) {
+        expectedNumberOfApiEndpoints = 29;
 
-            .elements('css selector', '.endpoint-summary', function(result) {
-                /* eslint-disable no-invalid-this */
-                this.assert.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
-                /* eslint-enable no-invalid-this */
-            })
-            .end();
+        browser
+            .initialize(browser.globals.baseURL + '/api-reference/communications/afc-rest/methods/ApiV1CalculateAdjustmentsPost/')
+            .apiReference.methods.layout(NUMAPIS, expectedNumberOfApiEndpoints);
     }
 };

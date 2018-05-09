@@ -34,4 +34,4 @@ The Free Trial API is not available on this server.
 
 The AvaTax Free Trial API is currently only available on the Sandbox environment.
 
-For more information about the AvaTax Free Trial process, please see [AvaTax Free APIs](http://developer.avalara.com/blog/2017/03/02/avatax-free-trial).
+For more information about the AvaTax Free Trial process, please see [AvaTax Free APIs](/blog/2017/03/02/avatax-free-trial).

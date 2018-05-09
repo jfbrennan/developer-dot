@@ -5,7 +5,7 @@ description: ...
 date: 2016-11-28 11:00
 author: Kevin Hess
 comments: true
-categories: [Sales Tax APIs]
+categories: [avatax, tax content]
 product: blog
 doctype: blog
 disqus: 1
@@ -13,11 +13,12 @@ disqus: 1
 
 One of the most common questions we get from our point-of-sale customers is about the need to operate in a disconnected environment, while maintaining the same level of accuracy of a connected environment. Many businesses can face periods of intermittent internet connectivity, preventing live calls to our tax engine. Some businesses wish to operate entirely disconnected. In either scenario, businesses require the means to calculate tax locally.
 
-Today, we'll walk through a new API launching in the [AvaTax 2.16.12 release](http://developer.avalara.com/blog/2016/11/22/rest-v2-16-12-patch-notes/) - an API that generates a tax content file that can be consumed by a merchant's point-of-sale (POS) application, supporting its native tax functionality. The data in the API response, at a minimum, will contain tax jurisdiction, tax rate and product/service taxability information for each Tax Code and brick & mortar store Location configured in your AvaTax account.
+Today, we'll walk through a new API launching in the [AvaTax 2.16.12 release](/blog/2016/11/22/rest-v2-16-12-patch-notes/) - an API that generates a tax content file that can be consumed by a merchant's point-of-sale (POS) application, supporting its native tax functionality. The data in the API response, at a minimum, will contain tax jurisdiction, tax rate and product/service taxability information for each Tax Code and brick & mortar store Location configured in your AvaTax account.
 
 ### The Point-of-Sale Tax Content File
 
 To begin, let's take a look at the template for the point-of-sale tax content file. Here are the details for each field included in the tax content file:
+<div class="mobile-table">
 
 <table class="styled-table">
 
@@ -237,6 +238,8 @@ To begin, let's take a look at the template for the point-of-sale tax content fi
 
 </table>
 
+</div>
+
 ### Getting Started
 
 Before we start building our JSON request, you'll want to ensure you have Locations and Items configured within your AvaTax account. Avalara's Help Center is a great resource for learning how to [Add or Import Company Locations](https://help.avalara.com/000_Avalara_AvaTax/Manage_Locations/Add__or_Import_Company_Locations) and [Add or Import Items](https://help.avalara.com/000_Avalara_AvaTax/Manage_Product_Taxability/020_Add_Items) .You can also take advantage of our suite of REST v2 endpoints for configuring your AvaTax account with Locations and Items. _Please note that the Point-of-Sale data API uses the Tax Codes assigned to your Items to generate a response._
@@ -296,7 +299,7 @@ But what if you only want to include a couple of Locations or Tax Codes? Or mayb
 }
 ```
 
-Or, even easier, you can request the data file for one location at a time using the [individual location point-of-sale data API](https://sandbox-rest/swagger/ui/index.html#!/Locations/BuildPointOfSaleDataFile):
+Or, even easier, you can request the data file for one location at a time using the [individual location point-of-sale data API](/api-reference/avatax/rest/v2/methods/TaxContent/BuildTaxContentFileForLocation/):
 
 `GET /api/v2/companies/12345/locations/56789/pointofsaledata`
 

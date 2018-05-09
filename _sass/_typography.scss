@@ -1,4 +1,4 @@
-a:default {
+a {
     color: $Darkest-blue;
     text-decoration: none;
     cursor: auto;
@@ -6,7 +6,7 @@ a:default {
 a:hover {
     color: $Ava-blue;
     text-decoration: none;
-    cursor: auto;
+    cursor: pointer;
 }
 
 a:link:active, a:visited:active {
@@ -20,6 +20,11 @@ ul {
         padding-left: 40px;
         list-style-type: disc;
     }
+}
+
+.markdown-description > ul {
+    padding-left: 40px;
+    list-style-type: disc;
 }
 
 .font-normal {

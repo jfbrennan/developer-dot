@@ -34,4 +34,4 @@ You attempted to fetch more than 1000 transaction documents at a time.
 
 The transaction fetch API is intended to allow retrieval of a small numbers of documents at a time.  Since transactions may contain a large amount of information, this fetch call may take a significant amount of time to complete.  To ensure that this response can be completed quickly, you are limited to fetching up to 1000 transactions in a single API call.
 
-If you would like to retrieve large numbers of documents, please consider using reports in admin console to download summary or detailed data.
+If you would like to retrieve large numbers of documents, please consider using reports on the [AvaTax Website](https://admin.avalara.com) to download summary or detailed data.

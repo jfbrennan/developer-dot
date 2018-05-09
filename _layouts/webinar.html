@@ -1,0 +1,61 @@
+---
+layout: default
+---
+<div class="breadcrumbs blog">
+    <div class="col-md-12">
+        <ul class="pipe">
+            <li class="text-uppercase">Resources</li>
+            <li class="text-uppercase"><a href="/resources/webinars">Developer Webinars</a></li>
+            <li class="text-uppercase">{{page.title}}</li>
+        </ul>
+    </div>
+</div>
+<br />
+
+<div class="half">
+    <h1>{{ page.title }}{% if page.subtitle %}<small>{{ page.subtitle }}</small>{% endif %}</h1>
+    <h2>{{ page.date | date: " %A, %B %d, %Y at %I:%M %p"}}</h2>
+    <div> {% include share-bar.html %} </div>
+    <p class="blog-content">{{ content }}</p>
+</div>
+
+{% if page.linkurl %}
+    <p class="btn-callout"><a href="{{ page.linkurl }}" role="button">Sign Up Now</a></p>
+{% endif %}
+
+{% if page.youtube %}
+    <iframe width="560" height="315" src="{{ page.youtube }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+{% endif %}
+
+
+<h3 style="font-style:italic;">All Upcoming Webinars</h3>
+<div class="container" style="float:left;">
+  <div class="row">
+    {% for post in site.webinars %}
+        {% capture nowunix %}{{'now' | date: '%s'}}{% endcapture %}
+        {% capture posttime %}{{post.date | date: '%s'}}{% endcapture %}
+        {% if posttime > nowunix %}
+          <div class="col-sm-3">
+            <div class="blog-preview">
+              <div class="gradient"></div>
+              <h5><a href="{{ post.url }}">{{ post.title }}</a></h4>
+              <h5 style="font-weight:normal;">{{ post.date | date: "%A, %B %d, %Y at %I:%M %p"}} PDT</h5>
+              <p class="blog-excerpt">{{ post.excerpt | strip_html | truncatewords: 100 }}</p>
+              <div class="readMore">
+                <a href="{{ post.url }}" class="btn btn-blog">Read More</a>
+              </div>
+            </div>
+           </div>
+       {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+
+
+
+
+
+
+
+

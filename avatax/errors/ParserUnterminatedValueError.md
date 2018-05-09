@@ -36,4 +36,4 @@ In your `$filter` parameter, you specified a condition that included a string th
 
 Please review your fetch request and check your `$filter` parameter carefully.
 
-For more information on filtering, please read <a href="http://developer.avalara.com/avatax/filtering-in-rest/">Filtering In REST</a>
+For more information on filtering, please read <a href="/avatax/filtering-in-rest/">Filtering In REST</a>

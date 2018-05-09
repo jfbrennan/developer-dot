@@ -4,7 +4,7 @@ title: From REST v1 to REST v2
 date: 2017-01-05
 author: Joseph Savarese
 comments: true
-categories: [Sales Tax APIs]
+categories: [avatax, howto]
 product: blog
 doctype: blog
 disqus: 1
@@ -110,7 +110,7 @@ Previously the endpoint used to calculate tax for transactions was `/1.0/tax/get
 
 ```
 
-Switching from v1 to v2 is made simple, where as you can see, minus the enpoint, the requests are very similar. Though, through using our v2 I think you'll notice that built into the REST v2 is much greater functionality and flexibility as we work to adhere to the unique circumstances each user faces. Here you'll find more on our [transaction types and their use](http://developer.avalara.com/blog/2016/11/18/types-of-transactions/).
+Switching from v1 to v2 is made simple, where as you can see, minus the enpoint, the requests are very similar. Though, through using our v2 I think you'll notice that built into the REST v2 is much greater functionality and flexibility as we work to adhere to the unique circumstances each user faces. Here you'll find more on our [transaction types and their use](/blog/2016/11/18/types-of-transactions/).
 
 As an example, if you'd like to view the Invoices that you've created without having to login to the Admin Console, but rather by making a simple request instead. This action can be made using `GET //sandbox-rest.avatax.com/api/v2/companies/{companyCode}/transactions` to view the transactions made by the sought after company.
 
@@ -166,7 +166,7 @@ As an example, if you'd like to view the Invoices that you've created without ha
 
 ```
 
-As you'll notice in the response the `"@recordsetCount": 15,` means that for the example company I've created a total of 15 records have been returned. If you'd like to retrieve the full number of all records across all pages you may specify `$include=count`in your API call. Visit [Filtering in AvaTax REST v2 ](http://developer.avalara.com/avatax/filtering-in-rest/) for more information.
+As you'll notice in the response the `"@recordsetCount": 15,` means that for the example company I've created a total of 15 records have been returned. If you'd like to retrieve the full number of all records across all pages you may specify `$include=count`in your API call. Visit [Filtering in AvaTax REST v2 ](/avatax/filtering-in-rest/) for more information.
 
 #### Estimating Tax
 
@@ -283,7 +283,7 @@ In case you're looking to adjust a transaction, we've included a separate enpoin
   }
 }
 ```
-This has been included with voiding documents because if you wanted to cancel such an adjustment to the transaction you'd make a void request with the parameter `AdjustmentCancelled` for your `code` in place of `DocVoided` used above. Find the full list of potential `code` [parameters and their actions here](http://developer.avalara.com/avatax/voiding-documents/).
+This has been included with voiding documents because if you wanted to cancel such an adjustment to the transaction you'd make a void request with the parameter `AdjustmentCancelled` for your `code` in place of `DocVoided` used above. Find the full list of potential `code` [parameters and their actions here](/avatax/voiding-documents/).
 
 #### Address Validation
 
@@ -319,22 +319,22 @@ Both operate the same; the `GET` method was introduced for simplicity of integra
 
 Something else the REST v1 could never do was create companies. This could only be done using the Onboarding API or through the Admin Console. Not only can the REST v2 create a new company, but you can create a company fully formed and ready for the calculation of tax in a single call to the API. Both of these are illustrated using the following two endpoints.
 
-[Create New](http://developer.avalara.com/avatax/api-reference/tax/v2/Companies/#ApiV2CompaniesPost) `POST //sandbox-rest.avatax.com/api/v2/companies`
+[Create New](/api-reference/avatax/rest/v2/methods/Companies/ApiV2CompaniesPost) `POST //sandbox-rest.avatax.com/api/v2/companies`
 
-[Initialize](http://developer.avalara.com/avatax/api-reference/tax/v2/Companies/#ApiV2CompaniesInitializePost) `POST //sandbox-rest.avatax.com/api/v2/companies/initialize`
+[Initialize](/api-reference/avatax/rest/v2/methods/Companies/ApiV2CompaniesInitializePost) `POST //sandbox-rest.avatax.com/api/v2/companies/initialize`
 
 #### Try our Definitions Endpoint
 
 If you're ever looking for information, the v2 has a new Definitions method, by using the assorted `GET //sandbox-rest.avatax.com/api/v2/definitions` endpoints you can retrieve parameter lists and definitions for these and more:
 
 <ul class="normal">
-  <li><a href="http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsLocationquestionsGet">Tax Location Questions </a></li>
-  <li><a href="http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsNexusGet">Nexus</a></li>
-  <li><a href="http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsParametersGet">Transactions</a></li>
-  <li><a href="http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsPermissionsGet">Permissions</a></li>
-  <li><a href="http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsSubscriptiontypesGet">Subscriptions</a></li>
-  <li><a href="http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsTaxauthoritiesGet">Tax Authorities</a></li>
-  <li><a href="http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsTaxcodesGet">Tax Codes</a></li>
+  <li><a href="/api-reference/avatax/rest/v2/methods/Definitions/ApiV2DefinitionsLocationquestionsGet">Tax Location Questions </a></li>
+  <li><a href="/api-reference/avatax/rest/v2/methods/Definitions/ApiV2DefinitionsNexusGet">Nexus</a></li>
+  <li><a href="/api-reference/avatax/rest/v2/methods/Definitions/ApiV2DefinitionsParametersGet">Transactions</a></li>
+  <li><a href="/api-reference/avatax/rest/v2/methods/Definitions/ApiV2DefinitionsPermissionsGet">Permissions</a></li>
+  <li><a href="/api-reference/avatax/rest/v2/methods/Definitions/ApiV2DefinitionsSubscriptiontypesGet">Subscriptions</a></li>
+  <li><a href="/api-reference/avatax/rest/v2/methods/Definitions/ApiV2DefinitionsTaxauthoritiesGet">Tax Authorities</a></li>
+  <li><a href="/api-reference/avatax/rest/v2/methods/Definitions/ApiV2DefinitionsTaxcodesGet">Tax Codes</a></li>
 </ul>
 
-We've been working hard here at Avalara to fine tune our AvaTax REST v2 API to provide you with the best possible service. These are just a handful of the improvements made in our REST v2, go here to view our entire [API reference documentation](http://developer.avalara.com/avatax/api-reference/tax/v2/). Hopefully this will help guide you along in the transition from our v1 to v2.
+We've been working hard here at Avalara to fine tune our AvaTax REST v2 API to provide you with the best possible service. These are just a handful of the improvements made in our REST v2, go here to view our entire [API reference documentation](/api-reference/avatax/rest/v2/). Hopefully this will help guide you along in the transition from our v1 to v2.

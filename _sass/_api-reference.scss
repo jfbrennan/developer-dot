@@ -33,6 +33,10 @@ h2, h3 {
     }
 }
 
+.auth-input {
+    max-width: 47%;
+}
+
 .postBodySectionHeader {
     width: 100%;
 }
@@ -64,9 +68,9 @@ h2, h3 {
     & +:not(.documentation-parameter-body) {
         border-bottom: 1px solid lightgrey;
     }
-    
+
     border: 1px solid lightgrey;
-    
+
     & & {
         border-left: none;
         border-right: none;
@@ -93,21 +97,19 @@ h2, h3 {
 
 .try-it-now-header {
     display: inline-block;
-    color: $Darkest-blue;
+    color: $Ava-orange;
     cursor: pointer;
     font-size: 18px;
-    margin-top: 5px;
-    margin-bottom: 20px;
 
     div.documentation-expand-icon {
-        fill: $Darkest-blue;
+        fill: $Ava-orange;
     }
 
     &:hover {
-        color: $Ava-blue;
+        color: $Darker-Ava-orange;
 
         div.documentation-expand-icon {
-            fill: $Ava-blue;
+            fill: $Darker-Ava-orange;
         }
     }
 }
@@ -145,25 +147,15 @@ h2, h3 {
     }
 }
 
-.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover, .older-api {
     background: white;
     color: $Ava-orange;
 }
 
+
+
 .hidden {
     display: none;
-}
-
-.affix {
-    /* This defaults to 141px for dumb reasons, don't waste the screen space */
-    top: 0px;
-    /* When nav is fixed, it loses the col--md3 class of its parent, so replicate its size restriction */
-    @extend .col-md-3;
-    padding-left:0;
-}
-
-.affix-bottom {
-    position: relative
 }
 
 .code-snippet-plaintext {
@@ -174,10 +166,6 @@ h2, h3 {
     margin-top: 5px;
     padding: 10px;
     overflow: auto;
-}
-
-.endpoint-summary, .api-summary {
-    max-width: 650px;
 }
 
 /* Override bootstraps default padding for nav items to fit more on the page */
@@ -192,4 +180,14 @@ h2, h3 {
     letter-spacing: 0.1rem;
     line-height:16px;
     text-transform: none;
+}
+
+.api-ref {
+    width: auto;
+    max-width: 25%;
+}
+
+.code-example-content {
+    height: auto;
+    min-height: 150px;
 }

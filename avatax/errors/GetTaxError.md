@@ -20,6 +20,8 @@ A problem occurred when you attempted to create a transaction through AvaTax.
     {
       "code": "GetTaxError",
       "number": 300,
+      "message": "Placeholder - will be overwritten by the actual error",
+      "description": "Placeholder - will be overwritten by the actual error",
       "faultCode": "Server",
       "helpLink": "http://developer.avalara.com/avatax/errors/GetTaxError",
       "severity": "Error"
@@ -32,4 +34,4 @@ A problem occurred when you attempted to create a transaction through AvaTax.
 
 Creating a transaction was known as "GetTax" in Avalara's SOAP API.  For compatibility reasons, this error message is also labeled a "GetTax" error message.
 
-Please refer to the <a href="http://developer.avalara.com/avatax/common-errors/">Common GetTax Errors</a> page for specific details about this error message and next steps.
+Please refer to the <a href="/avatax/common-errors/">Common GetTax Errors</a> page for specific details about this error message and next steps.

@@ -3,8 +3,6 @@ import actionTypes from '../../shared/actionTypes';
 
 export default (state = {}, action) => {
     switch (action.type) {
-    case actionTypes.APP_LOADED:
-        return {...state, appLoaded: true};
     case actionTypes.AUTH_KEY_CHANGED:
         // Update auth header for each request in pmCollection:
         const params = {...state.auth.params, [action.keyName]: action.inputVal};
@@ -31,12 +29,21 @@ export default (state = {}, action) => {
             };
         });
         return {...state, auth: auth};
+
+    case actionTypes.USER_PROFILE_FETCHED:
+        const userProfile = action.user || null;
+
+        return {...state, userProfile};
+
     case actionTypes.RESET_CONSOLE:
     case actionTypes.SUBMIT_DONE:
+    case actionTypes.SUBMIT_STARTED:
     case actionTypes.FILL_REQUEST_SAMPLE_DATA:
     case actionTypes.QUERY_STRING_CHANGED:
     case actionTypes.PATH_PARAM_CHANGED:
     case actionTypes.POST_BODY_CHANGED:
+    case actionTypes.REQUEST_CHANGED:
+    case actionTypes.CONSOLE_ERROR:
     case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
     case actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION:
     case actionTypes.TOGGLE_SHOW_EXCLUDED_POST_BODY_PROPS:
@@ -46,6 +53,13 @@ export default (state = {}, action) => {
             }
             return endpoint;
         })};
+    case actionTypes.TOGGLE_AI_CREDS_FOR_CONSOLE_REQUEST:
+        if (state.userProfile) {
+            state.userProfile.toggled = !state.userProfile.toggled;
+        }
+        return state;
+    case actionTypes.ACCESS_TOKEN_EXPIRATION:
+        return {...state, userProfile: null};
     default:
         return state;
     }
