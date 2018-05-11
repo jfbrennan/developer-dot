@@ -218,7 +218,7 @@ To begin, let's take a look at the template for the point-of-sale tax content fi
 
 <td>TaxRuleOptions</td>
 
-<td>Applies a special tax scenario rule to the transaction. There is only one supported value at this time: Tax All. With a threshold, this rule taxes the entire amount once the total is over the threshold</td>
+<td>Applies a special tax scenario rule to the transaction. There is only one supported value at this time: Tax All. With a threshold, this rule taxes the entire amount once the total reaches the threshold</td>
 
 <td>TaxAll</td>
 

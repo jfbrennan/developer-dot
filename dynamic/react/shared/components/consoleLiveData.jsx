@@ -133,12 +133,12 @@ const ConsoleLiveData = ({action, consoleLoading, endpoint, onRequestChanged, on
                                     <div className={'json_error'}>
                                         <h5>{'Incorrect JSON format'}</h5>
                                     </div> : null}
-                                <div className={'code-snippet respScroll'}>{consoleLoading ? <div className={'loading-pulse'} /> : <pre dangerouslySetInnerHTML={{__html: response ? syntaxHighlight(response.body) : ' '}} />}</div>
+                            <div className={'code-snippet respScroll'}>{consoleLoading ? <div className={'loading-pulse'} /> : <pre dangerouslySetInnerHTML={{__html: response ? response.status === 'Failed to fetch' ? '<p style="color:yellow">A timeout limit of 10s has been reached</p>' : syntaxHighlight(response.body) : ' '}} />}</div>
                             </div>
                         </div> :
                         <div>
                             <h5 className={'console-output-header'}>{'Response'}</h5>
-                            <div className={'code-snippet respScroll'}>{consoleLoading ? <div className={'loading-pulse'} /> : <pre dangerouslySetInnerHTML={{__html: response ? syntaxHighlight(response.body) : ' '}} />}</div>
+                            <div className={'code-snippet respScroll'}>{consoleLoading ? <div className={'loading-pulse'} /> : <pre dangerouslySetInnerHTML={{__html: response ? response.status === 'Failed to fetch' ? '<p style="color:yellow">A timeout limit of 10s has been reached</p>' : syntaxHighlight(response.body) : ' '}} />}</div>
                             {/* eslint-enable react/no-danger */}
                         </div>
                     }

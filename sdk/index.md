@@ -15,7 +15,7 @@ These libraries are open source, and are released as such. If you have located a
 
 Avalara maintains and publishes SDKs for our current REST v2 API for the following programming languages:
 
-<div class="mobile-table">
+<div class="mobile-table" id="rest_sdk_table">
     <table class="styled-table">
         <thead>
         <tr>
