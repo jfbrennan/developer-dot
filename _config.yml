@@ -47,7 +47,8 @@ exclude: [node_modules, dynamic, LICENSE, README.md, package.json, s3_website.ym
 include: ['_webinars']
 
 # Keep robots.txt file for "develop" environment
-keep_files: [robots.txt]
+  keep_files: [robots.txt]
+end
 # Use the kramdown Markdown renderer
 markdown: kramdown
 redcarpet:
