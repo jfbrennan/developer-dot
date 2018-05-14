@@ -5,7 +5,7 @@ description: ...
 date: 2016-11-28 11:00
 author: Kevin Hess
 comments: true
-categories: [Sales Tax APIs]
+categories: [avatax, tax content]
 product: blog
 doctype: blog
 disqus: 1
@@ -13,11 +13,12 @@ disqus: 1
 
 One of the most common questions we get from our point-of-sale customers is about the need to operate in a disconnected environment, while maintaining the same level of accuracy of a connected environment. Many businesses can face periods of intermittent internet connectivity, preventing live calls to our tax engine. Some businesses wish to operate entirely disconnected. In either scenario, businesses require the means to calculate tax locally.
 
-Today, we'll walk through a new API launching in the [AvaTax 2.16.12 release](http://developer.avalara.com/blog/2016/11/22/rest-v2-16-12-patch-notes/) - an API that generates a tax content file that can be consumed by a merchant's point-of-sale (POS) application, supporting its native tax functionality. The data in the API response, at a minimum, will contain tax jurisdiction, tax rate and product/service taxability information for each Tax Code and brick & mortar store Location configured in your AvaTax account.
+Today, we'll walk through a new API launching in the [AvaTax 2.16.12 release](/blog/2016/11/22/rest-v2-16-12-patch-notes/) - an API that generates a tax content file that can be consumed by a merchant's point-of-sale (POS) application, supporting its native tax functionality. The data in the API response, at a minimum, will contain tax jurisdiction, tax rate and product/service taxability information for each Tax Code and brick & mortar store Location configured in your AvaTax account.
 
 ### The Point-of-Sale Tax Content File
 
 To begin, let's take a look at the template for the point-of-sale tax content file. Here are the details for each field included in the tax content file:
+<div class="mobile-table">
 
 <table class="styled-table">
 
@@ -217,7 +218,7 @@ To begin, let's take a look at the template for the point-of-sale tax content fi
 
 <td>TaxRuleOptions</td>
 
-<td>Applies a special tax scenario rule to the transaction. There is only one supported value at this time: Tax All. With a threshold, this rule taxes the entire amount once the total is over the threshold</td>
+<td>Applies a special tax scenario rule to the transaction. There is only one supported value at this time: Tax All. With a threshold, this rule taxes the entire amount once the total reaches the threshold</td>
 
 <td>TaxAll</td>
 
@@ -236,6 +237,8 @@ To begin, let's take a look at the template for the point-of-sale tax content fi
 </tbody>
 
 </table>
+
+</div>
 
 ### Getting Started
 
@@ -296,7 +299,7 @@ But what if you only want to include a couple of Locations or Tax Codes? Or mayb
 }
 ```
 
-Or, even easier, you can request the data file for one location at a time using the [individual location point-of-sale data API](https://sandbox-rest/swagger/ui/index.html#!/Locations/BuildPointOfSaleDataFile):
+Or, even easier, you can request the data file for one location at a time using the [individual location point-of-sale data API](/api-reference/avatax/rest/v2/methods/TaxContent/BuildTaxContentFileForLocation/):
 
 `GET /api/v2/companies/12345/locations/56789/pointofsaledata`
 

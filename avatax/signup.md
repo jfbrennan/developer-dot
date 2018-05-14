@@ -1,15 +1,35 @@
 ---
 layout: default
-title: Get Started
+title: AvaTax Free Trial
 product: avaTax
 doctype: documentation
 avaform: 1
 ---
 
-<h4 id="signup">Sign up for a Sandbox Account</h4>
+<h4 id="signup">Sign up for an AvaTax Free Trial Account</h4>
+
 <div class="half">
-This sandbox account is for evaluation only and is initially active for 30 days, but you can request an extension if needed. You will need to add company profile and tax profile information to calculate sales tax. It is based on an AvaTax Basic subscription and includes access to Nexus Jurisdictions in the <strong>U.S. and Canada only</strong>. To access full AvaTax Pro System Tax Code functionality or Global Nexus Jurisdictions, please <a href="http://www.avalara.com/contact-us/">contact sales</a> to inquire about a paid development account.
+<ul>
+    <li>To get started, we’ll first set you up with an AvaTax account. This account will allow you to get started right away using our production environment, including access to the full AvaTax Pro System Tax Code functionality and Global Nexus Jurisdictions.</li>
+    <br />
+    <li>This account is initially active for 60 days, but you can request an extension if needed. You will need to add company profile and tax profile information to calculate sales tax. If you decide to purchase a subscription at a later date, it can be added directly to this account so that no data migration is required.</li>
+</ul>
 <div class="avaform-wrapper"></div>
 
-<p>For more information about calling AvaTax and using your new development account, check out our <a href="/avatax/get-started">getting started guide</a>.</p>
+If you are having difficulty deciding where to start, check out our <a href="/avatax/signup">getting started guide</a>. A few other good resources are the following blog posts:
+<ul class="normal">
+    <li><a href="/blog/2016/09/30/getting-started-with-avalara-apis/">Getting Started With Avalara's APIs</a></li>
+    <li><a href="/blog/2016/10/04/getting-started-with-avatax-rest-v2/">Getting Started with AvaTax REST v2</a></li>
+    <li><a href="blog/2017/07/03/developer-api-reference/">New Developer API Reference</a></li>
+</ul>
+
+Here are links to download a few of our SDKs:
+<ul class="normal">
+    <li><a href="https://www.nuget.org/packages/Avalara.AvaTax/">AvaTax C# SDK</a></li>
+    <li><a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22net.avalara.avatax%22">AvaTax JRE SDK</a></li>
+    <li><a href="https://packagist.org/packages/avalara/avataxclient">AvaTax PHP SDK</a></li>
+    <li><a href="https://rubygems.org/gems/avatax">AvaTax Ruby SDK</a></li>
+    <li><a href="https://www.npmjs.com/package/avatax">AvaTax JavaScript SDK</a></li>
+</ul>
+If you are interested in working with SDKs, make sure to checkout our <a href="/sdk/">AvaTax SDKs</a> and our <a href="/sdk/soap/">SOAP SDKs</a>.
 </div>

@@ -5,7 +5,7 @@ description: Release Notes for the December 2016 update to the AvaTax REST v2 AP
 date: 2016-11-22 11:00
 author: Ted Spence
 comments: true
-categories: [Sales Tax APIs]
+categories: [avatax, patch notes]
 product: blog
 doctype: blog
 disqus: 1
@@ -17,23 +17,25 @@ This article is about the December 2016 monthly update to the AvaTax REST v2 API
 
 UPDATED 2016-12-07 - The team added the definition of "Mixed" sourcing to the client library to address California sourcing scenarios prior to launch.  Launch has been rescheduled for Tuesday, December 13th.
 
-<table class="styled-table">
-	<tr>
-		<th>Environment</th>
-		<th>URL</th>
-		<th>Release Date</th>
-	</tr>
-	<tr>
-		<td>Sandbox</td>
-        <td><a href="https://sandbox-rest.avatax.com">https://sandbox-rest.avatax.com</a></td>
-		<td>2016-12-01</td>
-	</tr>
-	<tr>
-		<td>Production</td>
-        <td><a href="https://rest.avatax.com">https://rest.avatax.com</a></td>
-		<td>2016-12-13</td>
-	</tr>
-</table>
+<div class="mobile-table">
+  <table class="styled-table">
+    <tr>
+      <th>Environment</th>
+      <th>URL</th>
+      <th>Release Date</th>
+    </tr>
+    <tr>
+      <td>Sandbox</td>
+          <td><a href="https://sandbox-rest.avatax.com">https://sandbox-rest.avatax.com</a></td>
+      <td>2016-12-01</td>
+    </tr>
+    <tr>
+      <td>Production</td>
+          <td><a href="https://rest.avatax.com">https://rest.avatax.com</a></td>
+      <td>2016-12-13</td>
+    </tr>
+  </table>
+</div>
 
 <h3>POST /api/v2/transactions/create</h3>
 
@@ -64,7 +66,7 @@ An example of the incorrect result and updated result is shown here:
 {
   "lines": [
     {
-      "sourcing": "Mixed", 
+      "sourcing": "Mixed",
       "details": [
         {
           "sourcing": "Destination"
@@ -79,11 +81,11 @@ An example of the incorrect result and updated result is shown here:
 
 Avalara now provides a data file API for customers with offline point-of-sale systems.  This new API is available to calculate current tax rates for each physical location within the company, in CSV, JSON, and XML file formats.
 
-More information on the Point-Of-Sale data API is available on <a href="http://developer.avalara.com/blog/2016/11/28/point-of-sale-data-api/">the Developer Blog</a>.
+More information on the Point-Of-Sale data API is available on <a href="/blog/2016/11/28/point-of-sale-data-api/">the Developer Blog</a>.
 
 <h3>API Documentation Updates</h3>
 
-The <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html">automatically generated API documentation for AvaTax</a> has been updated with comments and explanations for each API call.  These explanations can help guide you through unfamiliar APIs and explain how they are intended to be used.
+The <a href="/api-reference/avatax/rest/v2/">automatically generated API documentation for AvaTax</a> has been updated with comments and explanations for each API call.  These explanations can help guide you through unfamiliar APIs and explain how they are intended to be used.
 
 <h3>GET /api/v2/definitions/countries</h3>
 
@@ -126,7 +128,7 @@ Sample results are below:
 <h3>Improved JSON formatting error messages</h3>
 
 For users who are hand-authoring JSON documents to transmit to AvaTax, the 2.16.12 release will provide detailed error messages about which part of your JSON payload could not be parsed, plus an explanation of why it could not be recognized.
- 
+
 <h3>Bugfixes and Improvements</h3>
 
 <ul class="normal">

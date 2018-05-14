@@ -4,7 +4,7 @@ title: Address Validation in REST v2
 date: 2016-12-09 14:00
 author: Ted Spence
 comments: true
-categories: [Sales Tax APIs]
+categories: [avatax, howto]
 product: blog
 doctype: blog
 disqus: 1
@@ -16,7 +16,7 @@ For today's blog post, I will walk you through the Address Validation functional
 
 <h3>Validate a Partial Address</h3>
 
-We'll begin by using the <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Addresses/ResolveAddress">ResolveAddress</a> endpoint to validate an incomplete address.  Let's say your salesperson was on the phone with a customer, and they took down all the necessary information, but for some reason they forgot to write down the postal code.  They provided you with this address:
+We'll begin by using the <a href="/api-reference/avatax/rest/v2/methods/Addresses/ResolveAddress/">ResolveAddress</a> endpoint to validate an incomplete address.  Let's say your salesperson was on the phone with a customer, and they took down all the necessary information, but for some reason they forgot to write down the postal code.  They provided you with this address:
 
 <ul class="normal">
     <li>1000 Main Street, Irvine, CA</li>
@@ -126,7 +126,7 @@ In this case, there just isn't enough information in the address to return a val
     "message": "An Address is incomplete or invalid.",
     "description": "",
     "faultCode": "GetTaxError",
-    "helpLink": "http://developer.avalara.com/avatax/errors/GetTaxError",
+    "helpLink": "/avatax/errors/GetTaxError",
     "refersTo": "Addresses[0]",
     "severity": "Error"
 }

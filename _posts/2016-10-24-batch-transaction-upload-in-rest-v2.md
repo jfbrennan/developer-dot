@@ -4,7 +4,7 @@ title: Batched Transactions in REST v2
 date: 2016-10-24 11:00
 author: Ted Spence
 comments: true
-categories: [Sales Tax APIs]
+categories: [avatax, howto]
 product: blog
 doctype: blog
 disqus: 1
@@ -14,11 +14,11 @@ disqus: 1
 
 One of the most common inquiries we get at Avalara is about the need to reconcile, or publish, a full list of a company's transactions at the end of the month.  Many businesses work by cash register day by day, and at the end of each month they produce a report listing all the transactions that they processed.  Sometimes businesses will have one report for each location, or cash register, or salesperson; and they need a batch process they can use to upload all of these transactions into AvaTax for later reconciliation, or for filing tax returns.
 
-Today, let's walk through the process of creating a batch and submitting it via the new <a href="http://developer.avalara.com/avatax/api-reference/tax/v2/">REST v2 API</a>.
+Today, let's walk through the process of creating a batch and submitting it via the new <a href="/api-reference/avatax/rest/v2/">REST v2 API</a>.
 
 <h2>Creating Your Batch File</h2>
 
-A batch file is a collection of transactions.  You've already seen how to <a href="http://developer.avalara.com/blog/2016/10/04/getting-started-with-avatax-rest-v2/">calculate tax for one transaction at a time</a> - the main difference here is that we'll be uploading a file with tons of individual transactions in it.  Remember, batch files are optional and they are best used if you really want to upload a large historical document set at once.
+A batch file is a collection of transactions.  You've already seen how to <a href="/blog/2016/10/04/getting-started-with-avatax-rest-v2/">calculate tax for one transaction at a time</a> - the main difference here is that we'll be uploading a file with tons of individual transactions in it.  Remember, batch files are optional and they are best used if you really want to upload a large historical document set at once.
 
 To begin, let's take a look at the template for a batch file.  It's easiest to create a batch file in a spreadsheet program like Microsoft Excel or to use a CSV export template.  Here's the list of headers in the file, as it would look in Comma Separated Values (CSV) format:
 
@@ -54,7 +54,7 @@ For our next step, we need to convert this into a JSON request.
 
 <h2>Building our JSON Request</h2>
 
-In order to upload a batch, you need to know two things: First, the AccountID of your account, and second, the CompanyID of the company you want to upload this transaction for.  The easiest way to do this is to <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Companies/ApiV2CompaniesGet">list all companies in your account</a>, and copy those values off that result.  Here's how you do it:
+In order to upload a batch, you need to know two things: First, the AccountID of your account, and second, the CompanyID of the company you want to upload this transaction for.  The easiest way to do this is to <a href="/api-reference/avatax/rest/v2/methods/Companies/QueryCompanies/">list all companies in your account</a>, and copy those values off that result.  Here's how you do it:
 
 ```
 GET /api/v2/companies
@@ -128,7 +128,7 @@ The end result should now look like this:
 Now, our next step is to create this batch file in AvaTax REST v2.  Here's how we do that:
 
 <ul class="normal">
-    <li>Launch the <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Batches/ApiV2CompaniesByCompanyIdBatchesPost">Batch Creation API</a> in REST v2</li>
+    <li>Launch the <a href="/api-reference/avatax/rest/v2/methods/Batches/CreateBatches/">Batch Creation API</a> in REST v2</li>
     <li>In the <b>models</b> box, paste your JSON snippet from above.</li>
     <li>In the <b>companyId</b> box, type the company ID you selected above.</li>
     <li>In the <b>Authorization</b> box, type in your AvaTax API credentials.</li>
@@ -165,9 +165,9 @@ First, note that the batch you just created is in status "Waiting".  That means 
 
 <h2>Checking on the Status of your Batch</h2>
 
-We'll continue by fetching our batch back from the server.  Launch the <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Batches/ApiV2CompaniesByCompanyIdBatchesByIdGet">Batch GET API</a> and type in your company ID and the batch ID you got back from your Batch Create API call.  The result you'll get back will either still say <code class="highlight-rouge">"status": "Waiting"</code>, or it will say <code class="highlight-rouge">"Completed"</code> or <code class="highlight-rouge">"Errors"</code>.  If the batch is still <code class="highlight-rouge">"Waiting"</a>, you'll just want to keep checking back periodically to see when it has finished.
+We'll continue by fetching our batch back from the server.  Launch the <a href="/api-reference/avatax/rest/v2/methods/Batches/GetBatch/">Batch GET API</a> and type in your company ID and the batch ID you got back from your Batch Create API call.  The result you'll get back will either still say <code class="highlight-rouge">"status": "Waiting"</code>, or it will say <code class="highlight-rouge">"Completed"</code> or <code class="highlight-rouge">"Errors"</code>.  If the batch is still <code class="highlight-rouge">"Waiting"</a>, you'll just want to keep checking back periodically to see when it has finished.
 
-If you received back a result - whether that result is success or whether errors occurred - you will also see something new in the result: a "Batch Results" file, which will have the resulting tax amounts.  
+If you received back a result - whether that result is success or whether errors occurred - you will also see something new in the result: a "Batch Results" file, which will have the resulting tax amounts.
 
 <h2>How do I process my results?</h2>
 

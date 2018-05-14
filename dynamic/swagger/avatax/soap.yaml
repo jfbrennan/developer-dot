@@ -1,8 +1,8 @@
 swagger: '2.0'
 info:
   description: "The AvaTax SOAP API exposes the most commonly used available for interacting with the AvaTax service, allowing calculation of tax, modification of documents, and validation of addresses. If you're unsure of which API to use, a full comparison of the differences between the functionality provided by our REST and SOAP interfaces is documented [here](http://developer.avalara.com/avatax/soap-or-rest/).
-  
-  The [REST API reference](http://developer.avalara.com/avatax/api-reference/tax/v1/) is also available.</p>"
+
+  The [REST API reference](http://developer.avalara.com/api-reference/avatax/rest/v2/) is also available.</p>"
   version: '1.0'
   title: AvaTax SOAP API
   termsOfService: 'http://www.avalara.com/terms/'
@@ -27,7 +27,13 @@ paths:
   '/Tax/TaxSvc.asmx?GetTax':
     post:
       summary: Calculate Tax and Record a Document
-      description: 'Calculates taxes on a document such as a sales order, sales invoice, purchase order, purchase invoice, or credit memo.'
+      description: 'Calculates taxes on a document such as a sales order, sales invoice, purchase order, purchase invoice, or credit memo.
+
+      This documentation is for the SOAP version of AvaTax.
+
+      This method is also available in REST as [CreateTransaction](/api-reference/avatax/rest/v2/methods/Transactions/CreateTransaction/).
+
+      SOAP users may wish to download the [AvaTax SOAP WSDL file](https://avatax.avalara.net/tax/taxsvc.wsdl) for all API definitions.'
       operationId: getTax
       parameters:
         - in: header
@@ -39,7 +45,7 @@ paths:
         - in: body
           name: Envelope
           required: true
-          schema: 
+          schema:
             $ref: '#/definitions/GetTaxEnvelope'
       responses:
         '200':
@@ -54,6 +60,11 @@ paths:
     post:
       operationId: postTax
       summary: Post a Document
+      description: 'This documentation is for the SOAP version of AvaTax.
+
+      This method is also available in REST as [SettleTransaction](/api-reference/avatax/rest/v2/methods/Transactions/SettleTransaction/).
+
+      SOAP users may wish to download the [AvaTax SOAP WSDL file](https://avatax.avalara.net/tax/taxsvc.wsdl) for all API definitions.'
       parameters:
         - in: header
           name: SOAPAction
@@ -68,7 +79,7 @@ paths:
       responses:
         '200':
           description: 'The operation was completed. Refer to the response property `ResultCode` to determine operation success or error.'
-          schema: 
+          schema:
             $ref: '#/definitions/PostTaxResponse'
         '400':
           description: 'An Error Occurred. Check the error message text to find more information.'
@@ -78,6 +89,11 @@ paths:
     post:
       operationId: commitTax
       summary: Commit a Document
+      description: 'This documentation is for the SOAP version of AvaTax.
+
+      This method is also available in REST as [CommitTransaction](/api-reference/avatax/rest/v2/methods/Transactions/CommitTransaction/).
+
+      SOAP users may wish to download the [AvaTax SOAP WSDL file](https://avatax.avalara.net/tax/taxsvc.wsdl) for all API definitions.'
       parameters:
         - in: header
           name: SOAPAction
@@ -92,7 +108,7 @@ paths:
       responses:
         '200':
           description: 'The operation was completed. Refer to the response property `ResultCode` to determine operation success or error.'
-          schema: 
+          schema:
             $ref: '#/definitions/CommitTaxResponse'
         '400':
           description: 'An Error Occurred. Check the error message text to find more information.'
@@ -102,7 +118,13 @@ paths:
     post:
       operationId: cancelTax
       summary: Void a Document
-      description: Voids or deletes and existing transaction record from the AvaTax system.
+      description: 'Voids or deletes and existing transaction record from the AvaTax system.
+
+      This documentation is for the SOAP version of AvaTax.
+
+      This method is also available in REST as [VoidTransaction](/api-reference/avatax/rest/v2/methods/Transactions/VoidTransaction/).
+
+      SOAP users may wish to download the [AvaTax SOAP WSDL file](https://avatax.avalara.net/tax/taxsvc.wsdl) for all API definitions.'
       parameters:
         - in: header
           name: SOAPAction
@@ -117,7 +139,7 @@ paths:
       responses:
         '200':
           description: 'The operation was completed. Refer to the response property `ResultCode` to determine operation success or error.'
-          schema: 
+          schema:
             $ref: '#/definitions/CancelTaxResponse'
         '400':
           description: 'An Error Occurred. Check the error message text to find more information.'
@@ -127,6 +149,11 @@ paths:
     post:
       operationId: adjustTax
       summary: Adjust a Document
+      description: 'This documentation is for the SOAP version of AvaTax.
+
+      This method is also available in REST as [AdjustTransaction](/api-reference/avatax/rest/v2/methods/Transactions/AdjustTransaction/).
+
+      SOAP users may wish to download the [AvaTax SOAP WSDL file](https://avatax.avalara.net/tax/taxsvc.wsdl) for all API definitions.'
       parameters:
         - in: header
           name: SOAPAction
@@ -141,7 +168,7 @@ paths:
       responses:
         '200':
           description: 'The operation was completed. Refer to the response property `ResultCode` to determine operation success or error.'
-          schema: 
+          schema:
             $ref: '#/definitions/AdjustTaxResponse'
         '400':
           description: 'An error occurred. Check the error message text to find more information.'
@@ -151,6 +178,11 @@ paths:
     post:
       operationId: getTaxHistory
       summary: Retrieve a Document
+      description: 'This documentation is for the SOAP version of AvaTax.
+
+      This method is also available in REST as [AuditTransaction](/api-reference/avatax/rest/v2/methods/Transactions/AuditTransaction/).
+
+      SOAP users may wish to download the [AvaTax SOAP WSDL file](https://avatax.avalara.net/tax/taxsvc.wsdl) for all API definitions.'
       parameters:
         - in: header
           name: SOAPAction
@@ -165,7 +197,7 @@ paths:
       responses:
         '200':
           description: 'The operation was completed. Refer to the response property `ResultCode` to determine operation success or error.'
-          schema: 
+          schema:
             $ref: '#/definitions/GetTaxHistoryResponse'
         '400':
           description: 'An Error Occurred. Check the error message text to find more information.'
@@ -175,6 +207,11 @@ paths:
     post:
       operationId: ping
       summary: Test Service Connectivity
+      description: 'This documentation is for the SOAP version of AvaTax.
+
+      This method is also available in REST as [Ping](/api-reference/avatax/rest/v2/methods/Utilities/Ping/).
+
+      SOAP users may wish to download the [AvaTax SOAP WSDL file](https://avatax.avalara.net/tax/taxsvc.wsdl) for all API definitions.'
       parameters:
         - in: header
           name: SOAPAction
@@ -189,7 +226,7 @@ paths:
       responses:
         '200':
           description: 'The operation was completed. Refer to the response property `ResultCode` to determine operation success or error.'
-          schema: 
+          schema:
             $ref: '#/definitions/PingResponse'
         '400':
           description: 'An error occurred. Check the error message text to find more information.'
@@ -199,6 +236,11 @@ paths:
     post:
       operationId: isAuthorized
       summary: Test Authorized Operations
+      description: 'This documentation is for the SOAP version of AvaTax.
+
+      This method is also available in REST as [GetUserEntitlements](/api-reference/avatax/rest/v2/methods/Users/GetUserEntitlements/).
+
+      SOAP users may wish to download the [AvaTax SOAP WSDL file](https://avatax.avalara.net/tax/taxsvc.wsdl) for all API definitions.'
       parameters:
         - in: header
           name: SOAPAction
@@ -213,7 +255,7 @@ paths:
       responses:
         '200':
           description: 'The operation was completed. Refer to the response property `ResultCode` to determine operation success or error.'
-          schema: 
+          schema:
             $ref: '#/definitions/IsAuthorizedResponse'
         '400':
           description: 'An Error Occurred. Check the error message text to find more information.'
@@ -224,6 +266,11 @@ paths:
       operationId: applyPayment
       deprecated: true
       summary: Change Payment Date (deprecated)
+      description: 'This documentation is for the SOAP version of AvaTax.
+
+      This method is also available in REST as [AdjustTransaction](/api-reference/avatax/rest/v2/methods/Transactions/AdjustTransaction/).
+
+      SOAP users may wish to download the [AvaTax SOAP WSDL file](https://avatax.avalara.net/tax/taxsvc.wsdl) for all API definitions.'
       parameters:
         - in: header
           name: SOAPAction
@@ -238,7 +285,7 @@ paths:
       responses:
         '200':
           description: 'The operation was completed. Refer to the response property `ResultCode` to determine operation success or error.'
-          schema: 
+          schema:
             $ref: '#/definitions/ApplyPaymentResponse'
         '400':
           description: 'An error occurred. Check the error message text to find more information.'
@@ -248,6 +295,11 @@ paths:
     post:
       operationId: reconcileTaxHistory
       summary: Mark Documents as Reconciled (deprecated)
+      description: 'This documentation is for the SOAP version of AvaTax.
+
+      This method is also available in REST as [VerifyTransaction](/api-reference/avatax/rest/v2/methods/Transactions/VerifyTransaction/).
+
+      SOAP users may wish to download the [AvaTax SOAP WSDL file](https://avatax.avalara.net/tax/taxsvc.wsdl) for all API definitions.'
       deprecated: true
       parameters:
         - in: header
@@ -263,7 +315,7 @@ paths:
       responses:
         '200':
           description: 'The operation was completed. Refer to the response property `ResultCode` to determine operation success or error.'
-          schema: 
+          schema:
             $ref: '#/definitions/ReconcileTaxHistoryResponse'
         '400':
           description: 'An error occurred. Check the error message text to find more information.'
@@ -273,9 +325,15 @@ paths:
   '/Address/AddressSvc.asmx?Validate':
     post:
       summary: Validate an Address
-      description: 'Normalizes a single US or Canadian address, providing a non-ambiguous USPS address match.'
+      description: 'Normalizes a single US or Canadian address, providing a non-ambiguous USPS address match.
+
+      This documentation is for the SOAP version of AvaTax.
+
+      This method is also available in REST as [ResolveAddress](/api-reference/avatax/rest/v2/methods/Addresses/ResolveAddress/).
+
+      SOAP users may wish to download the [AvaTax SOAP WSDL file](https://avatax.avalara.net/tax/taxsvc.wsdl) for all API definitions.'
       operationId: validateAddress
-      parameters: 
+      parameters:
         - in: header
           name: SOAPAction
           required: true
@@ -322,9 +380,9 @@ definitions:
         xml:
           namespace: "http://avatax.avalara.com/services"
         type: object
-        properties: 
+        properties:
           ApplyPaymentRequest:
-            $ref: '#/definitions/ApplyPaymentRequest' 
+            $ref: '#/definitions/ApplyPaymentRequest'
   ReconcileTaxHistoryEnvelope:
     xml:
       name: Envelope
@@ -350,9 +408,9 @@ definitions:
         xml:
           namespace: "http://avatax.avalara.com/services"
         type: object
-        properties: 
+        properties:
           ReconcileTaxHistoryRequest:
-            $ref: '#/definitions/ReconcileTaxHistoryRequest' 
+            $ref: '#/definitions/ReconcileTaxHistoryRequest'
   ReconcileTaxHistoryRequest:
     required:
       - Reconciled
@@ -449,7 +507,7 @@ definitions:
             properties:
               GetTaxResults:
                 type: array
-                xml: 
+                xml:
                   wrapped: true
                 items:
                   $ref: '#/definitions/GetTaxResult'
@@ -493,12 +551,12 @@ definitions:
     properties:
       CommitTax:
         title: CommitTax
-        xml: 
+        xml:
           namespace: "http://avatax.avalara.com/services"
         type: object
         properties:
           CommitTaxRequest:
-            $ref: '#/definitions/CommitTaxRequest' 
+            $ref: '#/definitions/CommitTaxRequest'
   AdjustTaxEnvelope:
     xml:
       name: Envelope
@@ -513,7 +571,7 @@ definitions:
       Body:
         $ref: '#/definitions/AdjustTaxBody'
   AdjustTaxBody:
-    xml: 
+    xml:
       name: Body
       prefix: SOAP-ENV
     required:
@@ -526,7 +584,7 @@ definitions:
           namespace: "http://avatax.avalara.com/services"
         properties:
           AdjustTaxRequest:
-            $ref: '#/definitions/AdjustTaxRequest' 
+            $ref: '#/definitions/AdjustTaxRequest'
   GetTaxHistoryEnvelope:
     xml:
       name: Envelope
@@ -541,7 +599,7 @@ definitions:
       Body:
         $ref: '#/definitions/GetTaxHistoryBody'
   GetTaxHistoryBody:
-    xml: 
+    xml:
       name: Body
       prefix: SOAP-ENV
     required:
@@ -554,7 +612,7 @@ definitions:
           namespace: "http://avatax.avalara.com/services"
         properties:
           GetTaxHistoryRequest:
-            $ref: '#/definitions/GetTaxHistoryRequest' 
+            $ref: '#/definitions/GetTaxHistoryRequest'
   PingEnvelope:
     xml:
       name: Envelope
@@ -576,7 +634,7 @@ definitions:
       - Ping
     properties:
       Ping:
-        $ref: '#/definitions/Ping' 
+        $ref: '#/definitions/Ping'
   IsAuthorizedEnvelope:
     xml:
       name: Envelope
@@ -602,9 +660,9 @@ definitions:
         xml:
           namespace: "http://avatax.avalara.com/services"
         type: object
-        properties: 
+        properties:
           IsAuthorizedRequest:
-            $ref: '#/definitions/IsAuthorizedRequest' 
+            $ref: '#/definitions/IsAuthorizedRequest'
   PostTaxEnvelope:
     xml:
       name: Envelope
@@ -627,12 +685,12 @@ definitions:
     properties:
       PostTax:
         title: PostTax
-        xml: 
+        xml:
           namespace: "http://avatax.avalara.com/services"
         type: object
         properties:
           PostTaxRequest:
-            $ref: '#/definitions/PostTaxRequest' 
+            $ref: '#/definitions/PostTaxRequest'
   ValidateEnvelope:
     xml:
       name: Envelope
@@ -699,11 +757,11 @@ definitions:
       CancelTax:
         type: object
         title: CancelTax
-        xml: 
+        xml:
           namespace: "http://avatax.avalara.com/services"
         properties:
           CancelTaxRequest:
-            $ref: '#/definitions/CancelTaxRequest'  
+            $ref: '#/definitions/CancelTaxRequest'
   GetTaxEnvelope:
     xml:
       name: Envelope
@@ -718,7 +776,7 @@ definitions:
       Body:
         $ref: '#/definitions/GetTaxBody'
   GetTaxBody:
-    xml: 
+    xml:
       name: Body
       prefix: SOAP-ENV
     required:
@@ -727,7 +785,7 @@ definitions:
       GetTax:
         title: GetTax
         type: object
-        xml: 
+        xml:
           namespace: "http://avatax.avalara.com/services"
         properties:
           GetTaxRequest:
@@ -931,9 +989,9 @@ definitions:
         type: string
         example: Tax
         description: "Specifies the level of detail to return.
-        Summary - summarizes document and jurisdiction detail with no line breakout 
-        Document - only document detail 
-        Line - document and line detail 
+        Summary - summarizes document and jurisdiction detail with no line breakout
+        Document - only document detail
+        Line - document and line detail
         Tax - document, line and jurisdiction detail"
       Discount:
         type: number
@@ -948,12 +1006,12 @@ definitions:
       DocType:
         type: string
         example: SalesOrder
-        description: 'The document type specifies the category of the document and affects how the document is treated after a tax calculation. If no DocType is specified in the request, SalesOrder will be used. 
-         SalesOrder: This is a temporary document type and is not saved in tax history. GetTaxResult will return with a DocStatus of Temporary. 
-         SalesInvoice: The document is a permanent invoice; document and tax calculation results are saved in the tax history. GetTaxResult will return with a DocStatus of Saved. 
-         PurchaseOrder: This is a temporary document type and is not saved in tax history. GetTaxResult will return with a DocStatus of Temporary. 
-         PurchaseInvoice : The document is a permanent invoice; document and tax calculation results are saved in the tax history. GetTaxResult will return with a DocStatus of Saved. 
-         ReturnOrder: This is a temporary document type and is not saved in tax history. GetTaxResult will return with a DocStatus of Temporary. 
+        description: 'The document type specifies the category of the document and affects how the document is treated after a tax calculation. If no DocType is specified in the request, SalesOrder will be used.
+         SalesOrder: This is a temporary document type and is not saved in tax history. GetTaxResult will return with a DocStatus of Temporary.
+         SalesInvoice: The document is a permanent invoice; document and tax calculation results are saved in the tax history. GetTaxResult will return with a DocStatus of Saved.
+         PurchaseOrder: This is a temporary document type and is not saved in tax history. GetTaxResult will return with a DocStatus of Temporary.
+         PurchaseInvoice : The document is a permanent invoice; document and tax calculation results are saved in the tax history. GetTaxResult will return with a DocStatus of Saved.
+         ReturnOrder: This is a temporary document type and is not saved in tax history. GetTaxResult will return with a DocStatus of Temporary.
          ReturnInvoice: The document is a permanent sales return invoice; document and tax calculation results are saved in the tax history GetTaxResult will return with a DocStatus of Saved.'
       DocDate:
         type: string
@@ -1022,7 +1080,7 @@ definitions:
         description: ''
       Lines:
         type: array
-        xml: 
+        xml:
           wrapped: true
         items:
           $ref: '#/definitions/Line'
@@ -1041,7 +1099,7 @@ definitions:
         type: string
         example: '1'
         description: 'Line item identifier. Uniquely identifies the line item row.'
-        xml: 
+        xml:
           name: 'No'
       DestinationCode:
         type: string
@@ -1118,10 +1176,10 @@ definitions:
       TaxOverrideType:
         type: string
         example: None
-        description: "Must be one of the following: 
-        None: Default 
-        TaxAmount: The TaxAmount overrides the total tax for the document. This is used for imported documents, returns, and layaways where the tax has already been calculated either by AvaTax or another means. 
-        Exemption: Exemption certificates are overridden making the document taxable. This may be used for situations where a normally exempt entity needs to be treated as not exempt. 
+        description: "Must be one of the following:
+        None: Default
+        TaxAmount: The TaxAmount overrides the total tax for the document. This is used for imported documents, returns, and layaways where the tax has already been calculated either by AvaTax or another means.
+        Exemption: Exemption certificates are overridden making the document taxable. This may be used for situations where a normally exempt entity needs to be treated as not exempt.
         TaxDate: The TaxDate overrides the DocDate as the effective date used for tax calculation. This may effect rates, rules and other factors."
       TaxDate:
         type: string
@@ -1440,13 +1498,13 @@ definitions:
       TotalTaxCalculated:
         type: number
         description: Indicates the total tax calculated by AvaTax. This is usually the same as the `TotalTax`, except when a tax override amount is specified. This is for informational purposes. The `TotalTax` will still be used for reporting.
-      TaxDate: 
+      TaxDate:
         type: string
         format: date
         description: Date used to assess tax rates and jurisdictions.
       TaxLines:
         type: array
-        xml: 
+        xml:
           wrapped: true
         items:
           $ref: '#/definitions/TaxLine'
@@ -1487,7 +1545,7 @@ definitions:
       Tax:
         type: number
         description: Tax amount
-      Discount: 
+      Discount:
         type: number
         description: Discount amount
       TaxCalculated:
@@ -1572,7 +1630,7 @@ definitions:
           Messages:
             description: 'Present in the response only if ResultCode is not `Success`'
             type: array
-            xml: 
+            xml:
               wrapped: true
             items:
               $ref: '#/definitions/Message'
@@ -1627,7 +1685,7 @@ definitions:
         * H - High-rise or business complex
         * P - PO Box address
         * R - Rural route address
-        * S - Street or residential address' 
+        * S - Street or residential address'
         maxLength: 1
       FipsCode:
         type: string
@@ -1740,10 +1798,11 @@ definitions:
       PingResult:
         type: object
         title: PingResult
-        xml: 
+        xml:
           namespace: "http://avatax.avalara.com/services"
-        properties: 
+        properties:
           Version:
+            type: string
             description: The service version of the AvaTax service.
             maxLength: 15
           TransactionId:
@@ -1754,7 +1813,7 @@ definitions:
             $ref: '#/definitions/ResultCode'
           Messages:
             type: array
-            xml: 
+            xml:
               wrapped: true
             items:
               $ref: '#/definitions/Message'
@@ -1842,13 +1901,13 @@ definitions:
         description: Your AvaTax Admin Console username. Usually an email address.
         xml:
           prefix: 'wsse'
-      Password: 
+      Password:
         type: string
         maxLength: 50
         description: Your AvaTax Admin Console password.
         xml:
           prefix: 'wsse'
-  Profile: 
+  Profile:
     required:
       - Client
       - Adapter
@@ -1857,11 +1916,11 @@ definitions:
     xml:
       namespace: 'http://avatax.avalara.com/services'
     properties:
-      Client: 
+      Client:
         type: string
         maxLength: 50
         description: 'Client application name and version. This should unique identify the software client that is calling the AvaTax service, and should be consistent across all deployments of that client version. e.g. “Drupal Commerce 5.7”'
-      Adapter: 
+      Adapter:
         type: string
         maxLength: 50
         description: Name and version of the adapter. This is set automatically by the .NET, PHP, and Java adapters.

@@ -6,12 +6,20 @@ doctype: use_cases
 nav: apis
 disqus: 1
 ---
-<h2>Finding Your CompanyId</h2>
-Some AvaTax APIs (notably <a href="/avatax/api-reference/batch/soap/">BatchSvc</a>) require the use of a CompanyId to refer to a particular company. This is similar to CompanyCode in the TaxSvc API, but is a unique identifier within the Avalara database.
 
-The easiest way to locate your CompanyId is through the Admin Console.
+Some AvaTax APIs require the use of a `companyId` to refer to a particular company.  All company objects in AvaTax have both a `companyCode` and a `companyId` value.
 
-<div class="caption">
-    <img src="/public/images/blog/company-id-624x308.jpg" alt="Log in to the Admin Console, and click on the company name to edit the profile. The CompanyId will appear in the page URL." />
-    Log in to the Admin Console, and click on the company name to edit the profile. The CompanyId will appear in the page URL.
-</div>
+* `companyCode` is intended to be a name you can customize to match the name of your company in your accounting system.
+* `companyId` is a globally unique ID number that refers to your company within AvaTax.
+
+It's also worth knowing that your account has a "default" company.  That company record has the field `isDefault` set to true; every account must have one default company in order to work.
+
+The easiest way to locate your CompanyId is by calling the [QueryCompanies API](/api-reference/avatax/rest/v2/methods/Companies/QueryCompanies/).  You could fetch your default company object using this request:
+
+```json
+GET /api/v2/companies?$filter=isDefault eq true
+```
+
+You can create new companies anytime by using the convenient quick startup [CompanyInitialize API](/api-reference/avatax/rest/v2/methods/Companies/CompanyInitialize/).  This API is designed to provide a quick-start for a simple company object that has one physical point of presence, one contact, and a basic tax profile.
+
+If you would like to configure a company with more control, please visit the [AvaTax Website](https://admin.avalara.com) or use the full [CreateCompanies API](/api-reference/avatax/rest/v2/methods/Companies/CreateCompanies/).

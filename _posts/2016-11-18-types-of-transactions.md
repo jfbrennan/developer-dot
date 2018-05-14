@@ -4,7 +4,7 @@ title: Types of Transactions
 date: 2016-11-18 16:00
 author: Ted Spence
 comments: true
-categories: [Sales Tax APIs]
+categories: [avatax, howto]
 product: blog
 doctype: blog
 disqus: 1
@@ -14,7 +14,7 @@ AvaTax is a full service engine for calculating transactional taxes, including s
 
 <h2>Orders vs Invoices</h2>
 
-Our customers require both the ability to <a href="http://developer.avalara.com/blog/2016/11/04/estimating-tax-with-rest-v2/">estimate tax for a transaction</a>, and to record the actual tax for that transaction.  Many customers use AvaTax as a way to predict taxes before taking action - for example, showing "Estimated Tax" on a web storefront.  Other customers use AvaTax to calculate taxes only at the moment the transaction occurs - for example, when recording a sale in their accounting system.
+Our customers require both the ability to <a href="/blog/2016/11/04/estimating-tax-with-rest-v2/">estimate tax for a transaction</a>, and to record the actual tax for that transaction.  Many customers use AvaTax as a way to predict taxes before taking action - for example, showing "Estimated Tax" on a web storefront.  Other customers use AvaTax to calculate taxes only at the moment the transaction occurs - for example, when recording a sale in their accounting system.
 
 In AvaTax, an "Order" represents a temporary transaction that is not saved, whereas an "Invoice" represents a permanent transaction that will be maintained.  Think about these documents like you are a salesperson:
 
@@ -64,53 +64,55 @@ Inventory transafers are another way of tracking transactions that have Consumer
 
 Now that we've walked through a few of the implications, let's finish with an overview of all these transaction types:
 
-<table class="styled-table">
-	<tr>
-		<th>Transaction Type</th>
-		<th>Lifetime</th>
-		<th>Example</th>
-	</tr>
-	<tr>
-		<td>SalesOrder</td>
-        <td>Temporary</td>
-		<td>A quote for a potential sale</td>
-	</tr>
-	<tr>
-		<td>SalesInvoice</td>
-        <td>Permanent</td>
-		<td>A finalized sale made to a customer</td>
-	</tr>
-	<tr>
-		<td>ReturnOrder</td>
-        <td>Temporary</td>
-		<td>A quote for a refund to a customer</td>
-	</tr>
-	<tr>
-		<td>ReturnInvoice</td>
-        <td>Permanent</td>
-		<td>A finalized refund given to a customer</td>
-	</tr>
-	<tr>
-		<td>PurchaseOrder</td>
-        <td>Temporary</td>
-		<td>A quote for identifying estimated tax to pay to a vendor</td>
-	</tr>
-	<tr>
-		<td>PurchaseInvoice</td>
-        <td>Permanent</td>
-		<td>A purchase made from a vendor</td>
-	</tr>
-	<tr>
-		<td>InventoryTransferOrder</td>
-        <td>Temporary</td>
-		<td>An estimate for shipping inventory from one location to another</td>
-	</tr>
-	<tr>
-		<td>InventoryTransferInvoice</td>
-        <td>Permanent</td>
-		<td>A finalized shipment of inventory from one location to another</td>
-	</tr>
-</table>
+<div class="mobile-table">
+	<table class="styled-table">
+		<tr>
+			<th>Transaction Type</th>
+			<th>Lifetime</th>
+			<th>Example</th>
+		</tr>
+		<tr>
+			<td>SalesOrder</td>
+			<td>Temporary</td>
+			<td>A quote for a potential sale</td>
+		</tr>
+		<tr>
+			<td>SalesInvoice</td>
+			<td>Permanent</td>
+			<td>A finalized sale made to a customer</td>
+		</tr>
+		<tr>
+			<td>ReturnOrder</td>
+			<td>Temporary</td>
+			<td>A quote for a refund to a customer</td>
+		</tr>
+		<tr>
+			<td>ReturnInvoice</td>
+			<td>Permanent</td>
+			<td>A finalized refund given to a customer</td>
+		</tr>
+		<tr>
+			<td>PurchaseOrder</td>
+			<td>Temporary</td>
+			<td>A quote for identifying estimated tax to pay to a vendor</td>
+		</tr>
+		<tr>
+			<td>PurchaseInvoice</td>
+			<td>Permanent</td>
+			<td>A purchase made from a vendor</td>
+		</tr>
+		<tr>
+			<td>InventoryTransferOrder</td>
+			<td>Temporary</td>
+			<td>An estimate for shipping inventory from one location to another</td>
+		</tr>
+		<tr>
+			<td>InventoryTransferInvoice</td>
+			<td>Permanent</td>
+			<td>A finalized shipment of inventory from one location to another</td>
+		</tr>
+	</table>
+</div>
 
 With all these tax types, AvaTax can help your business be ready for the onrush of holiday traffic!
 

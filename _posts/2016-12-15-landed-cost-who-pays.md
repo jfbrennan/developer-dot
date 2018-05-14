@@ -4,11 +4,12 @@ title: Who Pays for Landed Cost?
 date: 2016-12-15 14:00
 author: Amy Morgan
 comments: true
-categories: [Sales Tax APIs]
+categories: [avatax, landed cost]
 product: blog
 doctype: blog
 disqus: 1
 ---
+*Update March 22, 2018 - AvaTax REST has a new syntax for representing DDP. This post is retained for historical purposes and the information around DDP and DAP remains relevant. You may read about the new LandedCost integration at <a href="/blog/2018/03/13/calculate-customs-duties-in-rest/" target="_blank">https://developer.avalara.com/blog/2018/03/13/calculate-customs-duties-in-rest/</a>.*
 
 With the release of the LandedCost calculator functionality, AvaTax now provides features to help you sell across country borders. LandedCost will calculate the customs duty for your cross-border shipments. However, using the calculator requires telling the API which party will be responsible for paying the customs duty &amp; import taxes. Specific to B2C sales, calculating the landed cost depends on the seller's business decision to support a DDP or DAP service to their customers.
 
@@ -24,7 +25,7 @@ The LandedCost calculator currently supports two situations:
 
 <h2>How do you submit DDP?</h2>
 
-For this example, we'll say that the Seller, is responsible. That means we'll use the code "DDP". This parameter is attached to the main body of the transaction, and it's called `AvaTax.LandedCost.Incoterms`.  You may notice that this is the exact same transaction as we used in our <a href="http://developer.avalara.com/blog/2016/10/13/landedcost-with-rest-v2/">previous blog post</a>, except that we've simply changed the `Incoterms` value to be `DDP`.
+For this example, we'll say that the Seller, is responsible. That means we'll use the code "DDP". *Updated 2018-03-22. You may read about the new LandedCost integration <a href="/blog/2018/03/13/calculate-customs-duties-in-rest/" target="_blank">here</a>.* <del>This parameter is attached to the main body of the transaction, and it's called `AvaTax.LandedCost.Incoterms`.  You may notice that this is the exact same transaction as we used in our <a href="/blog/2016/10/13/landedcost-with-rest-v2/">previous blog post</a>, except that we've simply changed the `Incoterms` value to be `DDP`.</del>
 
 `POST /api/v2/transactions/create`
 

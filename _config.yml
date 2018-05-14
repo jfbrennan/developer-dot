@@ -1,5 +1,5 @@
-# Site title and subtitle. This is used in _includes/header.html 
-title: 'Developer '
+# Site title and subtitle. This is used in _includes/header.html
+title: 'Avalara Developer'
 subtitle: ''
 
 # if you wish to integrate disqus on pages set your shortname here
@@ -29,14 +29,7 @@ sections: [
 ]
 
 gems:
-    - algoliasearch-jekyll
     - jekyll-paginate
-
-algolia:
-    application_id: '19A6FWAAB3'
-    index_name: 'developer-dot'
-    settings:
-        attributesForFaceting: ['doctype', 'product']
 
 
 # Keep as an empty string if served up at the root. If served up at a specific
@@ -50,8 +43,11 @@ highlighter: rouge
 future: true
 
 # Exclude non-site files
-exclude: [node_modules, dynamic, LICENSE, README.md, package.json, s3_website.yml, Gemfile, Gemfile.lock]
+exclude: [node_modules, dynamic, LICENSE, README.md, package.json, s3_website.yml, Gemfile, Gemfile.lock, _test, scripts]
+include: ['_webinars']
 
+# Keep robots.txt file for "develop" environment
+keep_files: [robots.txt]
 # Use the kramdown Markdown renderer
 markdown: kramdown
 redcarpet:
@@ -66,7 +62,7 @@ redcarpet:
         'hardwrap'
     ]
 
-paginate: 9
+paginate: 8
 paginate_path: "/blog/page:num/"
 
 # applies to _posts only for some reason
@@ -74,4 +70,19 @@ permalink: blog/:year/:month/:day/:title/
 excerpt_separator: <!--more-->
 
 collections:
-    permalink: :basename/
+  webinars:
+    output: true
+    permalink: /webinars/:year/:month/:day/
+
+## Jekyll Archives configuration
+jekyll-archives:
+  enabled:
+    - categories
+  layouts:
+    category: archive-tag
+  permalinks:
+    category: 'blog/:name/'
+
+url: "https://developer.avalara.com"
+plugins_dir:
+  - jekyll-sitemap

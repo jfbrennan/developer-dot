@@ -7,11 +7,11 @@ doctype: overview
 ---
 
 <div class="row bg-map">
-  <div class="col-md-8 col-md-offset-2 text-center">
+  <div class="col-md-6 col-md-offset-3 text-center">
     <h1 class="h1p">Real-time tax calculation for financial applications</h1>
-    <h1>Try free for 30 days with an Avalara AvaTax sandbox account</h1>
+    <h1>Try the Avalara AvaTax API for free</h1>
   </div>
-  <div class="col-xs-offset-2 col-xs-8 text-center btn-callout"><a href="/avatax/signup" role="button">Get an Avalara AvaTax sandbox</a></div>
+  <div class="col-xs-offset-2 col-xs-8 text-center btn-callout"><a href="/avatax/signup" role="button">Get a Free Trial Account Now</a></div>
 </div>
 <div class="row border-top padding-top">
   <div class="col-md-8 col-md-offset-2 text-center">
@@ -35,53 +35,49 @@ doctype: overview
     </div>
   </div>
 </div>
-<div class="row padding-top padding-bottom">
-  <div class="col-md-8 col-md-offset-2 text-center">
-    <h1 class="h1p">Learn what the AvaTax API can do for you</h1>
-    <ul class="pipe">
-        <li><a href="/avatax/use-cases">Use cases</a></li>
-        <li><a href="/avatax/api-reference/tax/v1">API references</a></li>
-    </ul>
-  </div>
-</div>
 <div class="row border-top padding-top hidden-xs">
   <div class="col-md-8 col-md-offset-2 text-center">
     <div class="row">
         <div class="col-md-3">
-            <h4>Fast and easy integration</h4>
+            <h4 class="text-left">Fast and easy integration</h4>
         </div>
         <div class="col-md-3">
-            <h4>Development tools &amp; support</h4>
+            <h4 class="text-left">Development tools &amp; support</h4>
         </div>
         <div class="col-md-3">
-            <h4>Integration testing resources</h4>
+            <h4 class="text-left">Integration testing resources</h4>
         </div>
         <div class="col-md-3">
-            <h4>Building a certified integration has benefits</h4>
+            <h4 class="text-left">Certified integration benefits</h4>
         </div>
     </div>
     <div class="row">
         <div class="col-md-3">
-            <p>Explore the API before you build. Make live API calls directly from our documentation.</p>
+            <p class="text-left">Explore the <a href="./sales-tax-api">sales tax API</a> before you build. Make live API calls directly from our documentation.</p>
         </div>
         <div class="col-md-3">
-            <p>Get started quickly with our sample code and libraries. If you get stuck, Avalara Support and Avalara's developer community are here with answers.</p>
+            <p class="text-left">Get started quickly with our sample code and libraries. If you get stuck, Avalara Support and Avalara's developer community are here with answers.</p>
         </div>
         <div class="col-md-3">
-            <p>Run through our recommended testing scenarios to check that all your bases are covered. Use our automated self-test tool to make sure the data you're sending looks good on our end.</p>
+            <p class="text-left">Run through our recommended testing scenarios to check that all your bases are covered. Use our automated self-test tool to make sure the data you're sending looks good on our end.</p>
         </div>
         <div class="col-md-3">
-            <p>Ready to take the final step? Certify your integration to receive sales and marketing support from Avalara.</p>
+            <p class="text-left">Ready to take the final step? Certify your integration to receive sales and marketing support from Avalara.</p>
         </div>
     </div>
-  </div>
-</div>
-<div class="row padding-top padding-bottom">
-  <div class="col-md-8 col-md-offset-2 text-center">
-    <h1 class="h1p">Fast and easy integration with AvaTax</h1>
-    <ul class="pipe">
-        <li><a href="/avatax/testing-your-integration">Test your integration</a></li>
-        <li><a href="/avatax/certification">Integration Checklists</a></li>
-    </ul>
+    <div class="row">
+        <div class="col-md-3">
+			<p><a href="/avatax/dev-guide/">The AvaTax Developer Guide makes getting started easy!</a></p>
+        </div>
+        <div class="col-md-3">
+			<p><a href="/sdk">Save time with the AvaTax SDK, available in five languages!</a></p>
+        </div>
+        <div class="col-md-3">
+			<p><a href="/api-reference/avatax/rest/v2/methods/Transactions/CreateTransaction/">Try out the AvaTax API with our interactive 'Try-It-Now' feature!</a></p>
+        </div>
+        <div class="col-md-3">
+			<p><a href="/certification/avatax">Check your connector against the online certification checklist!</a></p>
+        </div>
+    </div>
   </div>
 </div>

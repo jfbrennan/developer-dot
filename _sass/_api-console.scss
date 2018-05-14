@@ -4,14 +4,14 @@
 .api-console-form-wrapper {
     background: whitesmoke;
     padding: 5px;
-    word-break: break-all;
+    // word-break: break-all;
     padding-left: 15px;
 }
 
 .api-console-output {
     color: white;
     background: $Darkest-grey;
-    word-break: break-all;
+    // word-break: break-all;
     padding: 5px;
 }
 
@@ -45,6 +45,10 @@
     }
 }
 
+.nav>a {
+    color: white;
+}
+
 .highlighted-field {
         background: #fceb51;
         &.string {
@@ -62,15 +66,26 @@
     color: darken(#8fffa7, 40%);
 }
 
-.code-snippet-code-text {
+.code-snippet-code-text,
+.code-snippet textarea {
     color: #8fffa7;
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
     font-size: 13px;
 }
 
-.code-snippet pre {
+.code-snippet pre,
+.code-snippet textarea {
     background: $Darkest-grey;
     border: none;
+}
+
+.code-snippet textarea {
+    height: 300px;
+    width: 100%;
+    resize: none;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    outline: none;
 }
 
 .hdr-btn-adj-text {
@@ -95,6 +110,7 @@
 
         &:not(:first-child) {
             background: white;
+            padding: 3.5px 7.5px 3.5px 7.5px;
 
             h4 {
                 color: $Darkest-grey;
@@ -106,9 +122,6 @@
             padding-left: 0;
         }
 
-        & .api-console-input-section:first-of-type {
-            @extend .resetIndentation;
-        }
         & .api-console-input-section .api-console-input-section {
             @extend .resetIndentation;
         }
@@ -128,6 +141,55 @@ h5.console-output-header {
     color: white;
     font-weight: bold;
     margin-left: 10px;
+    margin-right: 10px;
+}
+
+.nav-tabs {
+    &#console-tabs {
+        border-bottom: 0px;
+        margin-right: 10px;
+        >li {
+            float: right; // Make the list-items overlay the bottom border
+            margin-bottom: -1px; // Actual tabs (as links)
+            font-size: 15px;
+            >a {
+                margin-right: 1px;
+                line-height: 15px; //;$line-height-base;
+                border: 1px solid transparent;
+                border-radius: $border-radius-base $border-radius-base 0 0;
+                &:hover {
+                    border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
+                }
+            } // Active state, and its :hover to override normal :hover
+            &.active>a {
+                &,
+                &:hover,
+                &:focus {
+                    color: $nav-tabs-active-link-hover-color;
+                    background-color: #71e4ff;
+                    border: 1px solid #71e4ff;
+                    border-bottom-color: transparent;
+                    cursor: default;
+                }
+            }
+        } // pulling this in mainly for less shorthand
+        &.nav-justified {
+            @extend .nav-justified;
+            @extend .nav-tabs-justified;
+        }
+    }
+}
+
+.json_error {
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 8px 8px 8px 8px;
+    background-color: #c70000;
+    h5 {
+        color: #FFF;
+        margin-top: 0px;
+    }
 }
 
 .api-console.row {
@@ -161,8 +223,61 @@ h5.console-output-header {
     text-decoration: none;
 }
 
+.try-it-now-header .clickable {
+    color: $Ava-orange;
+}
+
+.try-it-now-header .clickable:hover {
+    color: $Darker-Ava-orange;
+}
+
 .api-console-section-header {
     display: inline-block;
     margin-top: 0;
     margin-bottom: 10px;
 }
+
+.response-post {
+    padding-bottom: 25px;
+}
+
+// START CONSOLE LOADER CSS
+$base-line-height: 24px;
+$white: rgb(255,255,255);
+$off-white: rgba($white, 0.2);
+$pulse-duration: 750ms;
+
+@keyframes pulse {
+  50% {
+    background: $white;
+  }
+}
+
+.loading-pulse {
+  position: relative;
+  left: 50%;
+  width: ($base-line-height / 4);
+  height: $base-line-height;
+  background: $off-white;
+  animation: pulse $pulse-duration infinite;
+  animation-delay: ($pulse-duration / 3);
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    display: block;
+    height: ($base-line-height / 1.5);
+    width: ($base-line-height / 4);
+    background: $off-white;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: pulse $pulse-duration infinite;
+  }
+  &:before {
+    left: -($base-line-height / 2);
+  }
+  &:after {
+    left: ($base-line-height / 2);
+    animation-delay: ($pulse-duration / 1.5);
+  }
+}
+// END CONSOLE LOADER CSS

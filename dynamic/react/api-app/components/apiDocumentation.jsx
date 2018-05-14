@@ -1,34 +1,122 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import ReactMarkdown from 'react-markdown';
+import ApiDocumentationParam from './apiDocumentationParam';
+import ApiDocModelLink from './apiDocModelLink';
 
-import ApiDocumentationItem from './apiDocumentationItem';
 
-const DOC_TYPES = {
-    REQUEST: 'REQUEST',
-    RESPONSE: 'RESPONSE'
-};
+function getPath(path) {
+    let sandboxPath = path;
 
-const ApiDocumentation = (props) => (
+    sandboxPath = sandboxPath.replace(/{/g, '<code>{');
+    sandboxPath = sandboxPath.replace(/}/g, '}</code>');
+    return sandboxPath;
+}
+
+
+const ApiDocumentation = ({endpoint}) => (
     <div>
-        <h4 className={'api-doc-header'}>{props.documentationFor === DOC_TYPES.REQUEST ? 'Post Body Parameters' : 'Response'}<span>{props.requestOrResponseSchema.fieldType && props.requestOrResponseSchema.fieldType === 'array' ? '[Array]' : ''}</span></h4>
-        <ApiDocumentationItem
-            canRemove={false}
-            displayName={'Post Body Parameters'}
-            documentationFor={props.documentationFor}
-            endpointId={props.endpointId}
-            isRoot={true}
-            item={props.requestOrResponseSchema}
-            name={''}
-            nestingLevel={0}
-        />
+        <div className='endpoint-header'>
+            <h1 id={endpoint.operationId}>{endpoint.operationId}</h1>
+        </div>
+        <table className='styled-table'>
+            <thead>
+                <tr>
+                    <th>{'Purpose'}</th>
+                    <td>{endpoint.name}</td>
+                </tr>
+                <tr>
+                    <th>{'HTTP Verb'}</th>
+                    <td>{endpoint.action.toUpperCase()}</td>
+                </tr>
+                <tr>
+                    <th>{(endpoint.productionPath) ? 'URL (SANDBOX)' : 'URL'}</th>
+                    <td dangerouslySetInnerHTML= {{__html: getPath(endpoint.path)}}/>
+                </tr>
+                {(endpoint.productionPath) ?
+                    <tr>
+                        <th>{'URL (PRODUCTION)'}</th>
+                        <td dangerouslySetInnerHTML= {{__html: getPath(endpoint.productionPath)}}/>
+                    </tr> : null
+                }
+                {(endpoint.queryString) ?
+                <tr>
+                    <th>{'Query String'}</th>
+                    <td>{(endpoint.queryString) ? '?' : ''}{Object.keys(endpoint.queryString || {}).join('&')}</td>
+                </tr> : null}
+                <tr>
+                    <th>{'Content-Type'}</th>
+                    <td>{endpoint.produces.join(', ')}</td>
+                </tr>
+                {endpoint.requestSchemaWithRefs ?
+                    <tr>
+                        <th>{'Request Body'}</th>
+                        <td>
+                            <ApiDocModelLink refSchema={endpoint.requestSchemaWithRefs} />
+                        </td>
+                    </tr> :
+                    null
+                }
+                <tr>
+                    <th>{'Response Body'}</th>
+                    <td>
+                        <ApiDocModelLink refSchema={endpoint.responseSchemaWithRefs} />
+                    </td>
+                </tr>
+            </thead>
+        </table>
+        <h3 id='description'>{'Description'}</h3>
+        <ReactMarkdown className={'markdown-description'} source={endpoint.description || ''} />
+        {window.relevantBlogPosts ?
+        <div>
+            <h3>{'Relevant Blog Posts:'}</h3>
+            <ul className={'normal'}>
+                {
+                    Object.keys(window.relevantBlogPosts).map(function(key) {
+                        return <li><a href={window.relevantBlogPosts[key].url}>{window.relevantBlogPosts[key].title}</a></li>;
+                    })
+                }
+            </ul>
+        </div> : null}
+        {(endpoint.pathParams || endpoint.headerParams || endpoint.queryString || endpoint.requestSchemaWithRefs) ?
+            <div>
+                <h3 id='parameters'>{'Parameters'}</h3>
+                <table className='styled-table'>
+                    <thead>
+                        <tr>
+                            <th>{'Location'}</th>
+                            <th>{'Parameter'}</th>
+                            <th>{'Attributes'}</th>
+                            <th>{'Summary'}</th>
+                        </tr>
+                    </thead>
+                    <ApiDocumentationParam currentOperation={endpoint.operationId} params={endpoint.pathParams} type={'UriPath'} />
+                    <ApiDocumentationParam currentOperation={endpoint.operationId} params={endpoint.headerParams} type={'Header'} />
+                    <ApiDocumentationParam currentOperation={endpoint.operationId} params={endpoint.queryString} type={'QueryString'} />
+                    {endpoint.requestSchemaWithRefs ?
+                        <tbody>
+                            <tr>
+                                <td>{'RequestBody'}</td>
+                                <td>{'Model'}</td>
+                                <td>
+                                    <ApiDocModelLink refSchema={endpoint.requestSchemaWithRefs} />
+                                </td>
+                                <td>
+                                    {endpoint.requestSchemaWithRefs.description || null}
+                                </td>
+                            </tr>
+                        </tbody> :
+                        null
+                    }
+                </table>
+            </div> : null
+        }
     </div>
 );
 
 ApiDocumentation.displayName = 'API Documentation';
 ApiDocumentation.propTypes = {
-    documentationFor: React.PropTypes.oneOf([DOC_TYPES.REQUEST, DOC_TYPES.RESPONSE]),
-    endpointId: React.PropTypes.number.isRequired,
-    name: React.PropTypes.string.isRequired,
-    requestOrResponseSchema: React.PropTypes.object.isRequired
+    endpoint: PropTypes.object
 };
 
 export default ApiDocumentation;

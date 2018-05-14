@@ -80,6 +80,11 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 			<td>One of the strings you uploaded to the server is too long and cannot be saved.</td>
 		</tr>		
         <tr>
+			<td>14</td>
+			<td><a href="MaxStringLengthError">MaxStringLengthError</a></td>
+			<td>The string you provided was too long for the field.</td>
+		</tr>		
+        <tr>
 			<td>15</td>
 			<td><a href="EmailValidationError">EmailValidationError</a></td>
 			<td>You attempted to provide an email address that does not conform to email address standards.</td>
@@ -248,6 +253,16 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 			<td>61</td>
 			<td><a href="CompanyProfileNotSet">CompanyProfileNotSet</a></td>
 			<td>This error occurs when you try to modify the tax profile of a company that inherits its tax profile from its parent.</td>
+		</tr>		
+        <tr>
+			<td>62</td>
+			<td><a href="CannotAssignUserToCompany">CannotAssignUserToCompany</a></td>
+			<td>Only Company-level users may be assigned to a company.</td>
+		</tr>		
+        <tr>
+			<td>63</td>
+			<td><a href="MustAssignUserToCompany">MustAssignUserToCompany</a></td>
+			<td>Company level users must be assigned to a company within this account.</td>
 		</tr>		
         <tr>
 			<td>70</td>
@@ -480,6 +495,176 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 			<td>Your bearer token does not have a provisioned AvaTax account.</td>
 		</tr>		
         <tr>
+			<td>162</td>
+			<td><a href="InvalidConfigurationSetting">InvalidConfigurationSetting</a></td>
+			<td>The configuration setting you specified is invalid.</td>
+		</tr>		
+        <tr>
+			<td>163</td>
+			<td><a href="InvalidConfigurationValue">InvalidConfigurationValue</a></td>
+			<td>The configuration value you supplied was invalid.</td>
+		</tr>		
+        <tr>
+			<td>164</td>
+			<td><a href="InvalidEnumValue">InvalidEnumValue</a></td>
+			<td>You specified an invalid value for a field.</td>
+		</tr>		
+        <tr>
+			<td>165</td>
+			<td><a href="TaxCodeAssociatedTaxRule">TaxCodeAssociatedTaxRule</a></td>
+			<td>This tax code cannot be deleted because it is in use.</td>
+		</tr>		
+        <tr>
+			<td>166</td>
+			<td><a href="CannotSwitchAccountId">CannotSwitchAccountId</a></td>
+			<td>You may not change the accountId value on a company.</td>
+		</tr>		
+        <tr>
+			<td>167</td>
+			<td><a href="RequestIncomplete">RequestIncomplete</a></td>
+			<td>Your API request contained unprintable characters or was incomplete.</td>
+		</tr>		
+        <tr>
+			<td>168</td>
+			<td><a href="AccountNotNew">AccountNotNew</a></td>
+			<td>Only accounts in 'New' status may be activated.</td>
+		</tr>		
+        <tr>
+			<td>169</td>
+			<td><a href="PasswordLengthInvalid">PasswordLengthInvalid</a></td>
+			<td>Your password did not meet length requirements.</td>
+		</tr>		
+        <tr>
+			<td>170</td>
+			<td><a href="LocalNexusConflict">LocalNexusConflict</a></td>
+			<td>Your nexus has invalid local nexus settings.</td>
+		</tr>		
+        <tr>
+			<td>171</td>
+			<td><a href="InvalidEcmsOverrideCode">InvalidEcmsOverrideCode</a></td>
+			<td>The EcmsOverrideCode value you supplied conflicts with a system-defined code.</td>
+		</tr>		
+        <tr>
+			<td>172</td>
+			<td><a href="AccountDoesNotExist">AccountDoesNotExist</a></td>
+			<td>You attempted to modify an account that does not exist.</td>
+		</tr>		
+        <tr>
+			<td>173</td>
+			<td><a href="InvalidTaxType">InvalidTaxType</a></td>
+			<td>You specified a tax type that does not exist.</td>
+		</tr>		
+        <tr>
+			<td>174</td>
+			<td><a href="IncorrectFieldValue">IncorrectFieldValue</a></td>
+			<td>You attempted to call the Reporting API with an incorrect field value.</td>
+		</tr>		
+        <tr>
+			<td>175</td>
+			<td><a href="LeadingOrTrailingException">LeadingOrTrailingException</a></td>
+			<td>The value you provided in the `$filter` parameter was incorrect.</td>
+		</tr>		
+        <tr>
+			<td>176</td>
+			<td><a href="NotEnoughAddressesInfo">NotEnoughAddressesInfo</a></td>
+			<td>A tax transaction must have both an origin and a destination address.</td>
+		</tr>		
+        <tr>
+			<td>177</td>
+			<td><a href="ReportNotInitiated">ReportNotInitiated</a></td>
+			<td>This report has not yet been created.</td>
+		</tr>		
+        <tr>
+			<td>178</td>
+			<td><a href="FailedToBuildReport">FailedToBuildReport</a></td>
+			<td>The report request you submitted could not be processed.</td>
+		</tr>		
+        <tr>
+			<td>179</td>
+			<td><a href="ReportNotFinished">ReportNotFinished</a></td>
+			<td>This report is not yet completed.</td>
+		</tr>		
+        <tr>
+			<td>180</td>
+			<td><a href="FailedToUploadReport">FailedToUploadReport</a></td>
+			<td>A server error prevented the report file from being uploaded.</td>
+		</tr>		
+        <tr>
+			<td>181</td>
+			<td><a href="FailedToDownloadReport">FailedToDownloadReport</a></td>
+			<td>A server error prevented the report file from being downloaded.</td>
+		</tr>		
+        <tr>
+			<td>182</td>
+			<td><a href="MalformedFilterException">MalformedFilterException</a></td>
+			<td>The `$filter` parameter could not be parsed.</td>
+		</tr>		
+        <tr>
+			<td>183</td>
+			<td><a href="ExpectedConjunctionError">ExpectedConjunctionError</a></td>
+			<td>The `$filter` criteria in your API request was missing a conjunction.</td>
+		</tr>		
+        <tr>
+			<td>184</td>
+			<td><a href="CriteriaNotSupportedError">CriteriaNotSupportedError</a></td>
+			<td>Your `$filter` parameter contains criteria that are not supported.</td>
+		</tr>		
+        <tr>
+			<td>185</td>
+			<td><a href="CompanyAccountAndParentAccountMismatch">CompanyAccountAndParentAccountMismatch</a></td>
+			<td>This operation is not permitted in technical support.</td>
+		</tr>		
+        <tr>
+			<td>186</td>
+			<td><a href="InvalidFileContentType">InvalidFileContentType</a></td>
+			<td>The file content type could not be determined correctly.</td>
+		</tr>		
+        <tr>
+			<td>188</td>
+			<td><a href="EcmsDisabled">EcmsDisabled</a></td>
+			<td>The ECMS configuration value for this account does not permit exemption certificates.</td>
+		</tr>		
+        <tr>
+			<td>189</td>
+			<td><a href="UnknownConjunctionError">UnknownConjunctionError</a></td>
+			<td>You attempted to use an invalid conjunction in your filter.</td>
+		</tr>		
+        <tr>
+			<td>190</td>
+			<td><a href="NoLinesDiscounted">NoLinesDiscounted</a></td>
+			<td>You attempted to specify a discount, but did not identify any lines to discount.</td>
+		</tr>		
+        <tr>
+			<td>191</td>
+			<td><a href="FailedToDelete">FailedToDelete</a></td>
+			<td>You attempted to delete an object that was in use.</td>
+		</tr>		
+        <tr>
+			<td>192</td>
+			<td><a href="CircularCompanyHierarchies">CircularCompanyHierarchies</a></td>
+			<td>Creating this company as submitted would result in a circular hierarchical reference.</td>
+		</tr>		
+        <tr>
+			<td>193</td>
+			<td><a href="DuplicateEntry">DuplicateEntry</a></td>
+			<td>The key or name already exists.</td>
+		</tr>		
+        <tr>
+			<td>194</td>
+			<td><a href="DuplicateFieldNameInOrderBy">DuplicateFieldNameInOrderBy</a></td>
+			<td>A sort or order filter criteria for this request was repeated.</td>
+		</tr>		
+        <tr>
+			<td>195</td>
+			<td><a href="CannotAdjustDocumentType">CannotAdjustDocumentType</a></td>
+			<td>The document type is an immutable property.</td>
+		</tr>		
+        <tr>
+			<td>196</td>
+			<td><a href="UserNoAccess">UserNoAccess</a></td>
+			<td>This user has a security role that blocks usage of this service.</td>
+		</tr>		
+        <tr>
 			<td>200</td>
 			<td><a href="BatchSalesAuditMustBeZippedError">BatchSalesAuditMustBeZippedError</a></td>
 			<td>Sales audit files must be uploaded in ZIP or RAR formats.</td>
@@ -495,6 +680,31 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 			<td>You uploaded a batch file with an incorrect file type.</td>
 		</tr>		
         <tr>
+			<td>203</td>
+			<td><a href="BatchCannotSaveBatchFile">BatchCannotSaveBatchFile</a></td>
+			<td>AvaTax cannot save the batch file.</td>
+		</tr>		
+        <tr>
+			<td>204</td>
+			<td><a href="BatchCannotGetBatchFile">BatchCannotGetBatchFile</a></td>
+			<td>Batch file could not be found.</td>
+		</tr>		
+        <tr>
+			<td>205</td>
+			<td><a href="BatchCannotDeleteBatchFile">BatchCannotDeleteBatchFile</a></td>
+			<td>Batch file deletion is not allowed.</td>
+		</tr>		
+        <tr>
+			<td>206</td>
+			<td><a href="BatchMustContainOneFile">BatchMustContainOneFile</a></td>
+			<td>This batch object must contain only one file.</td>
+		</tr>		
+        <tr>
+			<td>207</td>
+			<td><a href="MissingBatchFileContent">MissingBatchFileContent</a></td>
+			<td>The batch object must contain a file to be processed.</td>
+		</tr>		
+        <tr>
 			<td>250</td>
 			<td><a href="PointOfSaleFileSize">PointOfSaleFileSize</a></td>
 			<td>The Point-Of-Sale API cannot build this file dynamically.</td>
@@ -503,6 +713,16 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 			<td>251</td>
 			<td><a href="PointOfSaleSetup">PointOfSaleSetup</a></td>
 			<td>Invalid parameter provided in the Point-Of-Sale file request.</td>
+		</tr>		
+        <tr>
+			<td>252</td>
+			<td><a href="InvalidInputDate">InvalidInputDate</a></td>
+			<td>You attempted to set a date value that must be within a range, but your value was outside of the range.</td>
+		</tr>		
+        <tr>
+			<td>253</td>
+			<td><a href="RequestedFileNotExist">RequestedFileNotExist</a></td>
+			<td>The TaxRate content file for the date you specified does not exist.</td>
 		</tr>		
         <tr>
 			<td>300</td>
@@ -580,9 +800,29 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 			<td>Temporary documents cannot be fetched from the API.</td>
 		</tr>		
         <tr>
+			<td>316</td>
+			<td><a href="TimeoutRequested">TimeoutRequested</a></td>
+			<td>You requested a timeout error from the AvaTax API.</td>
+		</tr>		
+        <tr>
+			<td>317</td>
+			<td><a href="InvalidAddress">InvalidAddress</a></td>
+			<td>The address you provided was incomplete.</td>
+		</tr>		
+        <tr>
+			<td>318</td>
+			<td><a href="InvalidPostalCode">InvalidPostalCode</a></td>
+			<td>The postal code you provided could not be found.</td>
+		</tr>		
+        <tr>
 			<td>400</td>
 			<td><a href="BadDocumentFetch">BadDocumentFetch</a></td>
 			<td>This error indicates that you have provided an incorrect "$include" value to the GET /api/v2/companies/{0}/transactions endpoint.</td>
+		</tr>		
+        <tr>
+			<td>401</td>
+			<td><a href="CannotChangeFilingStatus">CannotChangeFilingStatus</a></td>
+			<td>The requested filing status change is invalid.</td>
 		</tr>		
         <tr>
 			<td>500</td>
@@ -605,19 +845,24 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 			<td>You attempted to contact an API that is available by invitation only.</td>
 		</tr>		
         <tr>
-			<td>604</td>
-			<td><a href="ZTBListConnectorFail">ZTBListConnectorFail</a></td>
-			<td>The Zero Touch Buying service did not respond in a timely manner.</td>
-		</tr>		
-        <tr>
-			<td>605</td>
-			<td><a href="ZTBCreateSubscriptionsFail">ZTBCreateSubscriptionsFail</a></td>
-			<td>The Zero Touch Buying service did not respond in a timely manner.</td>
-		</tr>		
-        <tr>
 			<td>606</td>
 			<td><a href="FreeTrialNotAvailable">FreeTrialNotAvailable</a></td>
 			<td>The Free Trial API is not available on this server.</td>
+		</tr>		
+        <tr>
+			<td>607</td>
+			<td><a href="AccountExistsDifferentEmail">AccountExistsDifferentEmail</a></td>
+			<td>An account with this username already exists.</td>
+		</tr>		
+        <tr>
+			<td>608</td>
+			<td><a href="AvalaraIdentityApiError">AvalaraIdentityApiError</a></td>
+			<td>A server configuration problem has been detected.</td>
+		</tr>		
+        <tr>
+			<td>609</td>
+			<td><a href="InvalidIPAddress">InvalidIPAddress</a></td>
+			<td>Your IP address has not been approved.</td>
 		</tr>		
         <tr>
 			<td>700</td>
@@ -641,8 +886,8 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 		</tr>		
         <tr>
 			<td>704</td>
-			<td><a href="NullRefundPercentageAndLines">NullRefundPercentageAndLines</a></td>
-			<td>You attempted to create a refund but did not specify the percentage or lines.</td>
+			<td><a href="RefundLinesRequired">RefundLinesRequired</a></td>
+			<td>Your RefundTransaction API call was missing necessary information.</td>
 		</tr>		
         <tr>
 			<td>705</td>
@@ -665,14 +910,34 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 			<td>You submitted a refund percentage lower than 0% or higher than 100%</td>
 		</tr>		
         <tr>
+			<td>709</td>
+			<td><a href="RefundPercentageMissing">RefundPercentageMissing</a></td>
+			<td>You specified a refund type of percentage, but did not specify the percentage.</td>
+		</tr>		
+        <tr>
 			<td>800</td>
-			<td><a href="TaxRateNotAvailableForFreeInThisCountry">TaxRateNotAvailableForFreeInThisCountry</a></td>
-			<td>The Free TaxRates API is only available in the US.</td>
+			<td><a href="MustUseCreateTransaction">MustUseCreateTransaction</a></td>
+			<td>The free tax rates API applies only to transactions within the United States.</td>
 		</tr>		
         <tr>
 			<td>900</td>
 			<td><a href="FilingCalendarCannotBeDeleted">FilingCalendarCannotBeDeleted</a></td>
 			<td>A filing calendar cannot be deleted once in use.</td>
+		</tr>		
+        <tr>
+			<td>901</td>
+			<td><a href="InvalidEffectiveDate">InvalidEffectiveDate</a></td>
+			<td>The effective date for your filing request is not valid.</td>
+		</tr>		
+        <tr>
+			<td>902</td>
+			<td><a href="NonOutletForm">NonOutletForm</a></td>
+			<td>This form does not permit Outlet or Location-based reporting.</td>
+		</tr>		
+        <tr>
+			<td>903</td>
+			<td><a href="OverlappingFilingCalendar">OverlappingFilingCalendar</a></td>
+			<td>This filing calendar overlaps with another calendar.</td>
 		</tr>		
         <tr>
 			<td>1000</td>
@@ -683,4 +948,199 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 			<td>1001</td>
 			<td><a href="QuestionNotValidForThisAddress">QuestionNotValidForThisAddress</a></td>
 			<td>One of the questions you answered is not valid for this address.</td>
+		</tr>		
+        <tr>
+			<td>1100</td>
+			<td><a href="CannotModifyLockedTransaction">CannotModifyLockedTransaction</a></td>
+			<td>A locked transaction may not be modified.</td>
+		</tr>		
+        <tr>
+			<td>1101</td>
+			<td><a href="LineAlreadyExists">LineAlreadyExists</a></td>
+			<td>You attempted to add a line with a conflicting line number.</td>
+		</tr>		
+        <tr>
+			<td>1102</td>
+			<td><a href="LineDoesNotExist">LineDoesNotExist</a></td>
+			<td>You attempted to remove a line that did not exist.</td>
+		</tr>		
+        <tr>
+			<td>1103</td>
+			<td><a href="LinesNotSpecified">LinesNotSpecified</a></td>
+			<td>You attempted to create a transaction with zero lines.</td>
+		</tr>		
+        <tr>
+			<td>1200</td>
+			<td><a href="InvalidBusinessType">InvalidBusinessType</a></td>
+			<td>The business type field on the ECMS record is invalid.</td>
+		</tr>		
+        <tr>
+			<td>1201</td>
+			<td><a href="CannotModifyExemptCert">CannotModifyExemptCert</a></td>
+			<td>Exemption certificates cannot be modified using the Company API.</td>
+		</tr>		
+        <tr>
+			<td>1202</td>
+			<td><a href="CertCaptureFieldValidationError">CertCaptureFieldValidationError</a></td>
+			<td>You called an exemption certificate API with an invalid value.</td>
+		</tr>		
+        <tr>
+			<td>1203</td>
+			<td><a href="CertCaptureError">CertCaptureError</a></td>
+			<td>The Avalara CertCapture service reported an error during the API call.</td>
+		</tr>		
+        <tr>
+			<td>1204</td>
+			<td><a href="MissingRequiredFields">MissingRequiredFields</a></td>
+			<td>A certificate must have either a filename, a PDF file attachment, or one JPG image for each page in the certificate.</td>
+		</tr>		
+        <tr>
+			<td>1205</td>
+			<td><a href="CertCaptureNotConfiguredError">CertCaptureNotConfiguredError</a></td>
+			<td>Your company has not been configured for exemption certificates.</td>
+		</tr>		
+        <tr>
+			<td>1206</td>
+			<td><a href="AddRelationshipsError">AddRelationshipsError</a></td>
+			<td>The certificate system could not link the two objects as requested.</td>
+		</tr>		
+        <tr>
+			<td>1207</td>
+			<td><a href="MissingExposureZone">MissingExposureZone</a></td>
+			<td>Avalara's Certificate service requires that all certificates have one exposure zone.</td>
+		</tr>		
+        <tr>
+			<td>1208</td>
+			<td><a href="ConflictingExposureZone">ConflictingExposureZone</a></td>
+			<td>Exposure zones must have unique names.</td>
+		</tr>		
+        <tr>
+			<td>1209</td>
+			<td><a href="MissingFieldToCreateExposureZone">MissingFieldToCreateExposureZone</a></td>
+			<td>Avalara's Certificates service requires extra information to create an exposure zone.</td>
+		</tr>		
+        <tr>
+			<td>1210</td>
+			<td><a href="MissingExemptReason">MissingExemptReason</a></td>
+			<td>A certificate must have an exemption reason.</td>
+		</tr>		
+        <tr>
+			<td>1211</td>
+			<td><a href="InvalidExemptReason">InvalidExemptReason</a></td>
+			<td>The exemption reason you specified cannot be found.</td>
+		</tr>		
+        <tr>
+			<td>1212</td>
+			<td><a href="InvalidCertCaptureOperation">InvalidCertCaptureOperation</a></td>
+			<td>The Certificate service was unable to parse a filter parameter in your query.</td>
+		</tr>		
+        <tr>
+			<td>1213</td>
+			<td><a href="ConflictingFields">ConflictingFields</a></td>
+			<td>A certificate must have be stored in only one format: filename, PDF, or images.</td>
+		</tr>		
+        <tr>
+			<td>1214</td>
+			<td><a href="InvalidPdfOrImageFile">InvalidPdfOrImageFile</a></td>
+			<td>You provided a value in the PDF or image file fields, but the value was empty.</td>
+		</tr>		
+        <tr>
+			<td>1215</td>
+			<td><a href="InvalidCoverLetterTitle">InvalidCoverLetterTitle</a></td>
+			<td>THe cover letter you specified for this CertExpress invitation was not found.</td>
+		</tr>		
+        <tr>
+			<td>1216</td>
+			<td><a href="AccountNotProvisioned">AccountNotProvisioned</a></td>
+			<td>The automatic provisioning process for exemption certificates failed.</td>
+		</tr>		
+        <tr>
+			<td>1300</td>
+			<td><a href="TransactionNotCancelled">TransactionNotCancelled</a></td>
+			<td>A multi-company transaction was partially created.</td>
+		</tr>		
+        <tr>
+			<td>1301</td>
+			<td><a href="TooManyTransactions">TooManyTransactions</a></td>
+			<td>The MultiDocument transaction you attempted to create is too complex.</td>
+		</tr>		
+        <tr>
+			<td>1302</td>
+			<td><a href="OnlyTaxDateOverrideIsAllowed">OnlyTaxDateOverrideIsAllowed</a></td>
+			<td>Multi-company transactions may only override tax dates.</td>
+		</tr>		
+        <tr>
+			<td>1303</td>
+			<td><a href="TransactionAlreadyExists">TransactionAlreadyExists</a></td>
+			<td>This transaction already exists and cannot be overwritten.</td>
+		</tr>		
+        <tr>
+			<td>1305</td>
+			<td><a href="DateMismatch">DateMismatch</a></td>
+			<td>The values in your verify call did not match the transaction.</td>
+		</tr>		
+        <tr>
+			<td>1306</td>
+			<td><a href="InvalidDocumentStatusForVerify">InvalidDocumentStatusForVerify</a></td>
+			<td>Documents can only be verified from the `Saved` or `Posted` statuses.</td>
+		</tr>		
+        <tr>
+			<td>1307</td>
+			<td><a href="TotalAmountMismatch">TotalAmountMismatch</a></td>
+			<td>The values in your verify call did not match the transaction.</td>
+		</tr>		
+        <tr>
+			<td>1308</td>
+			<td><a href="TotalTaxMismatch">TotalTaxMismatch</a></td>
+			<td>The values in your verify call did not match the transaction.</td>
+		</tr>		
+        <tr>
+			<td>1309</td>
+			<td><a href="InvalidDocumentStatusForCommit">InvalidDocumentStatusForCommit</a></td>
+			<td>Documents can only be committed from the `Saved` or `Posted` statuses.</td>
+		</tr>		
+        <tr>
+			<td>1310</td>
+			<td><a href="InvalidDocumentType">InvalidDocumentType</a></td>
+			<td>A document could not be found with the specified type.</td>
+		</tr>		
+        <tr>
+			<td>1312</td>
+			<td><a href="MultiDocumentPartiallyLocked">MultiDocumentPartiallyLocked</a></td>
+			<td>A MultiDocument was partially locked for reporting.</td>
+		</tr>		
+        <tr>
+			<td>1313</td>
+			<td><a href="TransactionIsCommitted">TransactionIsCommitted</a></td>
+			<td>This API can only modify transactions that are not yet committed.</td>
+		</tr>		
+        <tr>
+			<td>1400</td>
+			<td><a href="CommsConfigClientIdMissing">CommsConfigClientIdMissing</a></td>
+			<td>You attempted to call a Communications tax API, but your client ID value is missing.</td>
+		</tr>		
+        <tr>
+			<td>1401</td>
+			<td><a href="CommsConfigClientIdBadValue">CommsConfigClientIdBadValue</a></td>
+			<td>The Avalara Communications Client ID value associated with your account is invalid.</td>
+		</tr>		
+        <tr>
+			<td>1402</td>
+			<td><a href="BizTechCustomerAccountFailure">BizTechCustomerAccountFailure</a></td>
+			<td>The Avalara business technology service could not create the account you requested.</td>
+		</tr>		
+        <tr>
+			<td>1403</td>
+			<td><a href="BizTechOpportunityCreationFailure">BizTechOpportunityCreationFailure</a></td>
+			<td>The Avalara business technology service could not find the opportunity you specified.</td>
+		</tr>		
+        <tr>
+			<td>1404</td>
+			<td><a href="AccountInNewStatusException">AccountInNewStatusException</a></td>
+			<td>You may not obtain a license key until you have accepted Avalara's terms and conditions.</td>
+		</tr>		
+        <tr>
+			<td>1405</td>
+			<td><a href="WorksheetException">WorksheetException</a></td>
+			<td>An error occurred in the Liability Worksheet calculation service.</td>
 		</tr></tbody></table>

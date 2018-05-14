@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import PostBodyFormSection from './postBodyFormSection';
 
 const PostBodyFormItem = ({name, itemSchema, itemValue, endpointId, displayName, canRemove, onPostBodyInputChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, showExcludedPostBodyFields}) => {
@@ -15,6 +15,12 @@ const PostBodyFormItem = ({name, itemSchema, itemValue, endpointId, displayName,
         return (
             <div className={'form-group'}>
                 <label className={'api-label-text'} htmlFor={uid}>{displayName}</label>
+                {itemSchema.description ?
+                    <a className='console-tool-tip' dataPlacement='top' dataToggle='tooltip' title={itemSchema.description}>
+                        &nbsp;&nbsp;&nbsp;
+                        <i className='glyphicon glyphicon-info-sign'/>
+                    </a> : null
+                }
                 {canRemove ?
                     <div
                         className={'clickable'}
@@ -84,7 +90,7 @@ const PostBodyFormItem = ({name, itemSchema, itemValue, endpointId, displayName,
         return (
             <div>
                 <PostBodyFormSection canRemove={false} displayName={displayName} endpointId={endpointId} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} propertyName={name}>
-                    {itemValue.map((itm, i) => {
+                    {(itemValue) ? itemValue.map((itm, i) => {
                         return (
                             <PostBodyFormItem
                                 canRemove={itemValue.length > 1}
@@ -99,7 +105,7 @@ const PostBodyFormItem = ({name, itemSchema, itemValue, endpointId, displayName,
                                 onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem}
                                 showExcludedPostBodyFields={showExcludedPostBodyFields}
                             />);
-                    })}
+                    }) : null}
                 </PostBodyFormSection>
                 <div className={'clickable'} onClick={onAddItemToPostbodyCollection.bind(null, name, endpointId, arraySchema)}>
                     <span className={'glyphicon glyphicon-plus'} /><span className={''}>{`  Add ${displayName === 'Post Body' ? 'Item' : displayName}`}</span>
@@ -118,7 +124,7 @@ const PostBodyFormItem = ({name, itemSchema, itemValue, endpointId, displayName,
                     endpointId={endpointId}
                     itemName={itemKey}
                     itemSchema={itemSchema[itemKey]}
-                    itemValue={itemValue[itemKey]}
+                    itemValue={(itemValue) ? itemValue[itemKey] : undefined}
                     key={i}
                     name={`${name ? name + ':' : ''}` + itemKey}
                     onAddItemToPostbodyCollection={onAddItemToPostbodyCollection}
@@ -133,16 +139,16 @@ const PostBodyFormItem = ({name, itemSchema, itemValue, endpointId, displayName,
 
 PostBodyFormItem.displayName = 'Post Body Item';
 PostBodyFormItem.propTypes = {
-    canRemove: React.PropTypes.bool.isRequired,
-    displayName: React.PropTypes.string.isRequired,
-    endpointId: React.PropTypes.number.isRequired,
-    itemSchema: React.PropTypes.object,
-    itemValue: React.PropTypes.any,
-    name: React.PropTypes.string.isRequired,
-    onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
-    onPostBodyInputChanged: React.PropTypes.func.isRequired,
-    onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
-    showExcludedPostBodyFields: React.PropTypes.bool.isRequired
+    canRemove: PropTypes.bool.isRequired,
+    displayName: PropTypes.string.isRequired,
+    endpointId: PropTypes.number.isRequired,
+    itemSchema: PropTypes.object,
+    itemValue: PropTypes.any,
+    name: PropTypes.string.isRequired,
+    onAddItemToPostbodyCollection: PropTypes.func.isRequired,
+    onPostBodyInputChanged: PropTypes.func.isRequired,
+    onRemovePostbodyCollectionItem: PropTypes.func.isRequired,
+    showExcludedPostBodyFields: PropTypes.bool.isRequired
 };
 
 export default PostBodyFormItem;

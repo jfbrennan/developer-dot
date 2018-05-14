@@ -34,4 +34,4 @@ You attempted to search on a field that does not exist or cannot be searched.
 
 AvaTax only permits certain fields to be searched.  You attempted to search on a field that either does not exist or cannot be searched.
 
-For more information on filtering, please read <a href="http://developer.avalara.com/avatax/filtering-in-rest/">Filtering In REST</a>
+For more information on filtering, please read <a href="/avatax/filtering-in-rest/">Filtering In REST</a>

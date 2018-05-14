@@ -1,57 +1,35 @@
+const NUMAPIS = 3;
+let expectedNumberOfApiEndpoints;
+
 module.exports = {
-    'baseURL': process.env.BASEURL ? process.env.BASEURL.replace(/\/$/, '') : 'http://localhost:4000',
-    'waitTime': isNaN(parseInt(process.env.TIMEOUT, 10)) ? 5000 : parseInt(process.env.TIMEOUT, 10),
-    'before': function() {
-        /* eslint-disable no-console */
-        console.log('WaitTime set to', this.waitTime);
-        console.log('BaseURL set to', this.baseURL);
-        /* eslint-enable no-console */
+    'before': function(browser) {
+        browser.maximizeWindow();
+    },
+
+    'after': function(browser) {
+        browser.end();
     },
 
     'API Reference: TrustFile: Core (verify number of endpoints)': function(browser) {
-        const expectedNumberOfApiEndpoints = 3;
+        expectedNumberOfApiEndpoints = 4;
 
         browser
-            .maximizeWindow()
-            .url(this.baseURL + '/trustfile/api-reference/core/v3/')
-            .waitForElementVisible('[data-reactroot]', this.waitTime)
-
-            .elements('css selector', '.endpoint-summary', function(result) {
-                /* eslint-disable no-invalid-this */
-                this.assert.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
-                /* eslint-enable no-invalid-this */
-            })
-            .end();
+            .initialize(browser.globals.baseURL + '/api-reference/trustfile/api/methods/GetItems/')
+            .apiReference.methods.layout(NUMAPIS, expectedNumberOfApiEndpoints);
     },
     'API Reference: TrustFile: Provisioning (verify number of endpoints)': function(browser) {
-        const expectedNumberOfApiEndpoints = 1;
+        expectedNumberOfApiEndpoints = 3;
 
         browser
-            .maximizeWindow()
-            .url(this.baseURL + '/trustfile/api-reference/provisioning/v3/')
-            .waitForElementVisible('[data-reactroot]', this.waitTime)
-
-            .elements('css selector', '.endpoint-summary', function(result) {
-                /* eslint-disable no-invalid-this */
-                this.assert.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
-                /* eslint-enable no-invalid-this */
-            })
-            .end();
+            .initialize(browser.globals.baseURL + '/api-reference/trustfile/app/methods/PostCompanySignup/')
+            .apiReference.methods.layout(NUMAPIS, expectedNumberOfApiEndpoints);
     },
     'API Reference: TrustFile: Connector (verify number of endpoints)': function(browser) {
-        const expectedNumberOfApiEndpoints = 13;
+        expectedNumberOfApiEndpoints = 14;
 
         browser
-            .maximizeWindow()
-            .url(this.baseURL + '/trustfile/api-reference/connector-management/v3/')
-            .waitForElementVisible('[data-reactroot]', this.waitTime)
-
-            .elements('css selector', '.endpoint-summary', function(result) {
-                /* eslint-disable no-invalid-this */
-                this.assert.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
-                /* eslint-enable no-invalid-this */
-            })
-            .end();
+            .initialize(browser.globals.baseURL + '/api-reference/trustfile/connector-microservice/methods/GetConnections/')
+            .apiReference.methods.layout(NUMAPIS, expectedNumberOfApiEndpoints);
     }
 
 };

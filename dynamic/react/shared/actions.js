@@ -1,6 +1,11 @@
 import actionTypes from './actionTypes';
 
 export default {
+    accessTokenExpiration: () => {
+        return {
+            type: actionTypes.ACCESS_TOKEN_EXPIRATION
+        };
+    },
     submitConsoleRequest: (endpointId, responseBody, status, statusMessage) => {
         return {
             type: actionTypes.SUBMIT_DONE,
@@ -10,6 +15,12 @@ export default {
                 status: status,
                 statusMessage: statusMessage
             }
+        };
+    },
+    consoleLoadingAnimation: (endpointId) => {
+        return {
+            type: actionTypes.SUBMIT_STARTED,
+            endpointId: endpointId
         };
     },
     queryParamChanged: (newValue, paramName, endpointId) => {
@@ -33,6 +44,19 @@ export default {
             type: actionTypes.POST_BODY_CHANGED,
             newValue: newValue,
             postBodyParamName: paramName,
+            endpointId: endpointId
+        };
+    },
+    requestChanged: (endpointId, newValue) => {
+        return {
+            type: actionTypes.REQUEST_CHANGED,
+            endpointId: endpointId,
+            newValue: newValue
+        };
+    },
+    consoleError: (endpointId) => {
+        return {
+            type: actionTypes.CONSOLE_ERROR,
             endpointId: endpointId
         };
     },
@@ -68,6 +92,11 @@ export default {
         return {
             type: actionTypes.RESET_CONSOLE,
             endpointId: endpointId
+        };
+    },
+    toggleAiForRequest: () => {
+        return {
+            type: actionTypes.TOGGLE_AI_CREDS_FOR_CONSOLE_REQUEST
         };
     },
     toggleShowExcludedPostBodyProps: (endpointId) => {

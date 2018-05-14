@@ -4,11 +4,13 @@ title: LandedCost with REST v2
 date: 2016-10-13 10:30
 author: Ted Spence
 comments: true
-categories: [Sales Tax APIs]
+categories: [avatax, landed cost]
 product: blog
 doctype: blog
 disqus: 1
 ---
+
+*Updated March 22, 2018 - AvaTax REST has a new syntax for making LandedCost calculations. This post is retained for historical purposes. You may read about the new LandedCost integration at <a href="/blog/2018/03/13/calculate-customs-duties-in-rest/" target="_blank">https://developer.avalara.com/blog/2018/03/13/calculate-customs-duties-in-rest/</a>.*
 
 <h2>Selling Cross-Border</h2>
 
@@ -18,7 +20,8 @@ Once you've begun using AvaTax REST v2, you'll have to make a few minor changes 
 
 <h2>Harmonized Tariff Schedule (HTS)</h2>
 
-For every product in your taxable transaction, you need to identify the Harmonized Tariff Schedule code (HTS code) for that item.  These tariff codes are published by the customs authorities in each destination country and you'll need to assign the appropriate code to your items.  You can search for a code online using Avalara's HTS code lookup page: <a href="https://www.avalara.com/hs-codes/">https://www.avalara.com/hs-codes/</a>
+For every product in your taxable transaction, you need to identify the Harmonized Tariff Schedule code (HTS code) for that item.  These tariff codes are published by the customs authorities in each destination country and you'll need to assign the appropriate code to your items. *Update 2018-03-22: AvaTax REST has a new APIs for HS Code lookup. You may read about the new HS Code endpoints at <a href="/blog/2018/03/13/hs-code-search-in-rest/" target="_blank">https://developer.avalara.com/blog/2018/03/13/hs-code-search-in-rest/</a>.*  
+<del>You can search for a code online using Avalara's HTS code lookup page: <a href="https://www.avalara.com/hs-codes/">https://www.avalara.com/hs-codes/</a></del>
 
 To identify this code for your item, you will add a "Parameter" for each line in your transaction.  That parameter is called the `AvaTax.LandedCost.HTSCode`.  For today's example, we'll use the code `6403519030`, which refers to "Other Footwear With Outer Soles Of Leather".  The exact details of these HTS codes are quite complex; but if you have a question you should certainly contact a customs office to verify that your code is correct!
 

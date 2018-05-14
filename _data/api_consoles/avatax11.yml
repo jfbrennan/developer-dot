@@ -1,31 +1,13 @@
 # AVATAX
 
-swagger_path: avatax/v2/rest.json
 nav_link:
-    title: Avatax REST API v2
-    path: /avatax/api-reference/tax/v2
-    has_tags: true
-product: avaTax
-endpoint_hashes:
-    - name: Calculate Tax and Record a Document
-      link: '/#getTax'
-    - name: Void a Document
-      link: '/#cancelTax'
-    - name: Estimate Tax
-      link: '/#estimateTax'
-    - name: Validate an Address
-      link: '/#validateAddress'
+    title: Avatax REST API
+    path: /api-reference/avatax/rest/v2
 
 nav_links:
   - title: Overview
     path: /avatax
-  - title: Use cases
-    path: /avatax/use-cases
-  - title: API references
-    path: /avatax/api-reference/tax/v2
-  - title: Set up your sandbox
-    path: /avatax/get-started
-  - title: Test your integration
-    path: /avatax/testing-your-integration
-  - title: Integration checklists
-    path: /avatax/certification
+  - title: Developer Guide
+    path: /avatax/dev-guide
+  - title: API reference
+    path: /api-reference/avatax/rest/v2

@@ -1,7 +1,15 @@
 _site
 node_modules
+.idea
 
-**/api-reference/
+api-reference/*
+
+!api-reference/signin-oidc
+!api-reference/signin-oidc/index.html
+
+!api-reference/signout-oidc
+!api-reference/signout-oidc/index.html
+
 !expected/**/api-reference
 
 public/css/style.css*
@@ -9,3 +17,24 @@ public/js/*-bundle.js
 
 _test/**/_results
 !_test/**/api-reference
+
+selenium-debug.log
+
+npm-debug.log
+
+**/.DS_Store
+
+# Ignore any models.json file that's built based on a swagger file
+dynamic/swagger/**/models.json
+
+_data/swagger
+_data/api_tag_pages
+_data/SWAGGER_CONFIG.json
+models
+
+.vscode
+
+# put all scripts for local development here
+tmp
+
+package-lock.json

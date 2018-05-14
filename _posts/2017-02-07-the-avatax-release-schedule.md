@@ -5,10 +5,12 @@ description: How does Avalara publish updates to its AvaTax products?
 date: 2017-02-07 17:00
 author: Ted Spence
 comments: true
-categories: [Sales Tax APIs]
+categories: [avatax]
 product: blog
 doctype: blog
 disqus: 1
+customjs:
+  - ../../../../../public/js/sdkTable.js
 ---
 
 Many of you know that Avalara publishes updates to its world-leading AvaTax software suite for tax processing roughly once per month, but do you know how our process works?  For today's article, we'll give you a brief description of how we create new features, notify our customers about our plans, and eventually launch our software to production.
@@ -21,13 +23,13 @@ This monthly release schedule is at the core of our development team's <a href="
 
 <h2>Patch Notes</h2>
 
-Shortly after we begin our monthly release, I begin drafting notes from all of the developers on our team into a preliminary set of patch notes for the release.  These notes are very rough - and they often are very different than the patch notes you see on our blog site.  We internally review and identify all the positive (and negative!) outcomes involved in each project.  We identify all the things that need to be solved before a feature can be safely launched, and how we can extend our test suite to encompass all the new work we plan to deliver.  
+Shortly after we begin our monthly release, I begin drafting notes from all of the developers on our team into a preliminary set of patch notes for the release.  These notes are very rough - and they often are very different than the patch notes you see on our blog site.  We internally review and identify all the positive (and negative!) outcomes involved in each project.  We identify all the things that need to be solved before a feature can be safely launched, and how we can extend our test suite to encompass all the new work we plan to deliver.
 
 Since all our work requires lots of design, validation, testing, and documentation, it's normal for the scope of a release to change over time.  As we get closer to the release date and our scope becomes clear, we write customer-oriented patch notes and publish them about two to three weeks before the release date.  These patch notes are written for a target audience of AvaTax developers and they help communicate what's changing and how it affects them.  Whenever possible, we list changes to each endpoint explicitly.  For reference, here's a few of our recent release patch notes:
 
 <ul class="normal">
-    <li><a href="http://developer.avalara.com/blog/2016/12/30/rest-v2-17-1-patch-notes/">January 2.17.1 Release</a></li>
-    <li><a href="http://developer.avalara.com/blog/2016/11/22/rest-v2-16-12-patch-notes/">December 2.16.12 Release</a></li>
+    <li><a href="/blog/2016/12/30/rest-v2-17-1-patch-notes/">January 2.17.1 Release</a></li>
+    <li><a href="/blog/2016/11/22/rest-v2-16-12-patch-notes/">December 2.16.12 Release</a></li>
 </ul>
 
 You may notice that these patch notes are occasionally updated after publication.  If there are last minute changes affecting a release, we'll publish new information to indicate when and how the article changed.
@@ -38,7 +40,7 @@ By the time our patch notes are ready to go out the door, we are already hard at
 
 We launch our features this way because it allows us to maintain our incredible stack of over 30,000 quality assurance test cases across the entire AvaTax suite of products.  We maintain dozens of internal servers that handle specific quality assurance functions, and we use continuous integration to deploy each change to these servers throughout the month.  All throughout the month, our quality assurance team monitors development work, feedback from account managers, and posts on the community site to identify new test cases we can implement.
 
-Every release is launched on the Sandbox environment a few days before it is deployed to production.  This allows some customers to use Sandbox as a way to preview upcoming features and test their software against each pre-release version of AvaTax.  Any customer with an active AvaTax subscription can <a href="https://help.avalara.com/kb/001/How_do_I_get_access_to_our_development%2F%2Fsandbox_account%3F">obtain a Sandbox account</a> and test on that environment themselves.  
+Every release is launched on the Sandbox environment a few days before it is deployed to production.  This allows some customers to use Sandbox as a way to preview upcoming features and test their software against each pre-release version of AvaTax.  Any customer with an active AvaTax subscription can <a href="https://help.avalara.com/kb/001/How_do_I_get_access_to_our_development%2F%2Fsandbox_account%3F">obtain a Sandbox account</a> and test on that environment themselves.
 
 The Sandbox environment has the same software and content that exists in AvaTax Production, but it stores your transactions in a different location.  Because of this separation of data, you can use Sandbox to try out new code and new connectors without worrying that your test data will appear on a tax return!  For this reason, we do not make available a "Sandbox" version of Avalara's managed returns service; we don't want there to be any confusion about whether test data will be filed.
 
@@ -48,50 +50,15 @@ After each release has launched to Sandbox and been available for testing for a 
 
 <h2>Updates to our SDK libraries</h2>
 
-Avalara maintains a number of SDK libraries for commonly used programming languages.  Each of these SDK libraries is automatically updated each month with the latest interfaces and documentation.  Each software development kit is automatically generated each month based on the <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html">official Swagger documentation for REST v2</a>, and many of them are available in package management systems like NuGet or Maven.  The current list of SDKs available is here:
+Avalara maintains a number of SDK libraries for commonly used programming languages.  Each of these SDK libraries is automatically updated each month with the latest interfaces and documentation.  Each software development kit is automatically generated each month based on the <a href="/api-reference/avatax/rest/v2/">official API documentation for REST v2</a>, and many of them are available in package management systems like NuGet or Maven.  The current list of SDKs available is <a href="https://developer.avalara.com/sdk/">here.</a> 
 
-<table class="styled-table">
-	<thead>
-		<tr>
-      <th>Language</th>
-      <th>Version</th>
-      <th>GitHub</th>
-      <th>Getting Started</th>
-		</tr>
-	</thead>
-	<tbody>
-    <tr>
-      <td>C#</td>
-      <td><a href="https://www.nuget.org/packages/Avalara.AvaTax/"><img src="https://img.shields.io/nuget/v/Avalara.AvaTax.svg?style=plastic" title="NuGet" alt="NuGet"/></a></td>
-      <td><a href="https://github.com/avadev/AvaTax-REST-V2-DotNet-SDK">AvaTax-REST-V2-DotNet-SDK</a></td>
-      <td><a href="http://developer.avalara.com/blog/2016/12/05/csharp-nuget-library">Article</a></td>
-    </tr>
-    <tr>
-      <td>Java</td>
-      <td><a href="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11"><img src="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11/badge.svg?style=plastic" title="Maven" alt="Maven"/></a></td>
-      <td><a href="https://github.com/avadev/AvaTax-REST-V2-JRE-SDK">AvaTax-REST-V2-JRE-SDK</a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>JavaScript</td>
-      <td></td>
-      <td><a href="https://github.com/avadev/AvaTax-REST-V2-JS-SDK">AvaTax-REST-V2-JS-SDK</a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>PHP</td>
-      <td></td>
-      <td><a href="https://github.com/avadev/AvaTax-REST-V2-PHP-SDK">AvaTax-REST-V2-PHP-SDK</a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Scala</td>
-      <td><a href="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11"><img src="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11/badge.svg?style=plastic" title="Maven" alt="Maven"/></a></td>
-      <td><a href="https://github.com/avadev/AvaTax-REST-V2-JRE-SDK">AvaTax-REST-V2-JRE-SDK</a></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+<div class="mobile-table" id="release_schedule_table">
+
+</div>
+{% for js in page.customjs %}
+<script async type="text/javascript" src="{{ js }}"></script>
+{% endfor %}
+
 
 Do you have a favorite language that isn't supported?  Please <a href="https://community.avalara.com/avalara/topics/new">contact us</a> and let us know which one you'd like to see!
 
