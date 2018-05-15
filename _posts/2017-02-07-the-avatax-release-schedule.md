@@ -9,6 +9,8 @@ categories: [avatax]
 product: blog
 doctype: blog
 disqus: 1
+customjs:
+  - ../../../../../public/js/sdkTable.js
 ---
 
 Many of you know that Avalara publishes updates to its world-leading AvaTax software suite for tax processing roughly once per month, but do you know how our process works?  For today's article, we'll give you a brief description of how we create new features, notify our customers about our plans, and eventually launch our software to production.
@@ -48,52 +50,15 @@ After each release has launched to Sandbox and been available for testing for a 
 
 <h2>Updates to our SDK libraries</h2>
 
-Avalara maintains a number of SDK libraries for commonly used programming languages.  Each of these SDK libraries is automatically updated each month with the latest interfaces and documentation.  Each software development kit is automatically generated each month based on the <a href="/api-reference/avatax/rest/v2/">official API documentation for REST v2</a>, and many of them are available in package management systems like NuGet or Maven.  The current list of SDKs available is here:
+Avalara maintains a number of SDK libraries for commonly used programming languages.  Each of these SDK libraries is automatically updated each month with the latest interfaces and documentation.  Each software development kit is automatically generated each month based on the <a href="/api-reference/avatax/rest/v2/">official API documentation for REST v2</a>, and many of them are available in package management systems like NuGet or Maven.  The current list of SDKs available is <a href="https://developer.avalara.com/sdk/">here.</a> 
 
-<div class="mobile-table">
-  <table class="styled-table">
-    <thead>
-      <tr>
-        <th>Language</th>
-        <th>Version</th>
-        <th>GitHub</th>
-        <th>Getting Started</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>C#</td>
-        <td><a href="https://www.nuget.org/packages/Avalara.AvaTax/"><img src="https://img.shields.io/nuget/v/Avalara.AvaTax.svg?style=plastic" title="NuGet" alt="NuGet"/></a></td>
-        <td><a href="https://github.com/avadev/AvaTax-REST-V2-DotNet-SDK">AvaTax-REST-V2-DotNet-SDK</a></td>
-        <td><a href="/blog/2016/12/05/csharp-nuget-library">Article</a></td>
-      </tr>
-      <tr>
-        <td>Java</td>
-        <td><a href="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11"><img src="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11/badge.svg?style=plastic" title="Maven" alt="Maven"/></a></td>
-        <td><a href="https://github.com/avadev/AvaTax-REST-V2-JRE-SDK">AvaTax-REST-V2-JRE-SDK</a></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>JavaScript</td>
-        <td></td>
-        <td><a href="https://github.com/avadev/AvaTax-REST-V2-JS-SDK">AvaTax-REST-V2-JS-SDK</a></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>PHP</td>
-        <td></td>
-        <td><a href="https://github.com/avadev/AvaTax-REST-V2-PHP-SDK">AvaTax-REST-V2-PHP-SDK</a></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Scala</td>
-        <td><a href="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11"><img src="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11/badge.svg?style=plastic" title="Maven" alt="Maven"/></a></td>
-        <td><a href="https://github.com/avadev/AvaTax-REST-V2-JRE-SDK">AvaTax-REST-V2-JRE-SDK</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+<div class="mobile-table" id="release_schedule_table">
+
 </div>
+{% for js in page.customjs %}
+<script async type="text/javascript" src="{{ js }}"></script>
+{% endfor %}
+
 
 Do you have a favorite language that isn't supported?  Please <a href="https://community.avalara.com/avalara/topics/new">contact us</a> and let us know which one you'd like to see!
 

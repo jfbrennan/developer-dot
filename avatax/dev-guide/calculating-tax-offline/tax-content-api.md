@@ -122,7 +122,7 @@ Here are the details for each field included in a Tax Content API response:
         </tr>
         <tr>
           <td>TaxRuleOptions</td>
-          <td>Applies a special tax scenario rule to the transaction. There is only one supported value at this time: TaxAll. With a threshold, this rule taxes the entire amount once the total is over the threshold</td>
+          <td>Applies a special tax scenario rule to the transaction. There is only one supported value at this time: TaxAll. With a threshold, this rule taxes the entire amount once the total reaches the threshold</td>
           <td>TaxAll</td>
         </tr>
         <tr>
