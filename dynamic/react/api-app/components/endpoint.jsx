@@ -25,7 +25,7 @@ const EndPointComponent = ({endpoint, apiType, onAccessTokenExpiration, onFillCo
                     </div>
                     <h3 className={'clickable'} style={{display: 'inline-block'}}>{'Try ' + endpoint.operationId + ' now!'}</h3>
                 </div>
-                <div className={'collapse'} id={`${replaceSpaces(endpoint.operationId)}-console-body`}>
+                <div className={'.fs-hide, collapse'} id={`${replaceSpaces(endpoint.operationId)}-console-body`}>
                     <ApiConsole endpoint={endpoint}
                                 onAccessTokenExpiration={onAccessTokenExpiration}
                                 onAddItemToPostbodyCollection={onAddItemToPostbodyCollection}
