@@ -3,10 +3,11 @@ rvm:
   - 2.2
 
 env:
-  - staging_bucket=staging-developer.avalara
-  - staging_cloudfront=E1VB4YGCMCEIX2
-  - prod_bucket=developer.avalara.com
-  - prod_cloudfront=E14INHTPGUUPMC
+  global:
+    - staging_bucket=staging-developer.avalara
+    - staging_cloudfront=E1VB4YGCMCEIX2
+    - prod_bucket=developer.avalara.com
+    - prod_cloudfront=E14INHTPGUUPMC
 
 services:
   - docker
@@ -46,10 +47,15 @@ script:
   - npm run test
   - docker-compose up --abort-on-container-exit --exit-code-from server
 after_success:
-  - if [ -n "$secret_key" ] && [ "$TRAVIS_BRANCH" == "master" ]; then bucket_name=developer.avalara.com s3_website push;
+  # original code commented out while we test this integration with env vars.
+  # - if [ -n "$secret_key" ] && [ "$TRAVIS_BRANCH" == "master" ]; then bucket_name=developer.avalara.com s3_website push;
+  #   fi  
+
+  - if [ -n "$secret_key" ] && [ "$TRAVIS_BRANCH" == "master" ];
+      then cloudfront_distro=$prod_cloudfront; bucket_name=$prod_bucket s3_website push;
     fi
   - if [ -n "$secret_key" ] && [ "$TRAVIS_BRANCH" == "develop" ];
-      then cloudfront_distro=$staging_cloudfront; bucket_name=$staging-bucket s3_website push;
+      then cloudfront_distro=$staging_cloudfront; bucket_name=$staging_bucket s3_website push;
     fi
 
 
