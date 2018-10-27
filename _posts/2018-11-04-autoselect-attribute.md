@@ -1,6 +1,4 @@
-You used a feature today that is so helpful and ubiquitous that there is actually a proposal to have it added to the HTML spec (it's my proposal!).
-
-I'm talking about auto-select. What is this? Let me explain.
+You used a feature today that is so helpful and ubiquitous that there is actually a proposal (my proposal!) to have it added to the HTML spec. I'm talking about auto-select and developers need it. Let me explain.
 
 ## Autoselect is good
 When you focus on an input by clicking, tabbing to it, or by some other means and the whole value of the input is automatically highlighted or _selected_, that is auto-select. And auto-select is good! The behavior is helpful in several ways.
