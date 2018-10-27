@@ -9,6 +9,16 @@ First, when applied to a search use case, auto-selecting the value enables the u
 
 Second, auto-selecting enables faster recovery when mistakes are made or when unexpected results occur. In the case of mistakes, users who are presented with an already selected value can type their correction without any exra interaction required. This is especially great for sign in UX when users accidently type the wrong credentials or are quickly trying multiple credentials if they don't remember which they may have registered with. In the case where no mistake was made in the value entered in the field but the results were unexpected, e.g. no results or irrelavant results found, it's convenient to be able to quickly iterate with new values until desired results are achieved.
 
-Lastly, fields where there is a higher probability that the user will want to copy or cut the value auto-selecting is again convenient.
+Lastly, fields where there is a higher probability that the user will want to copy or cut the value auto-selecting is again convenient. You're a developer and therefore a power user. Most users are not like you. There are users who, wanting to copy, will user their mouse to carefully highlight text in the field, navigate their pointer to the Edit menu, move down to Copy or Cut and click. They will then user their mouse to the Edit menu then Paste. It can actually be worse: Edit > Select all, Edit > Copy, Edit Paste. Sad, but true. Even power users though still stand to benefit. How many times a day do you `Ctrl + A` or `Cmd + A`? For many of those instances it would of been totally appropriate had the UI auto-selected for you.
 
-In all cases the behavior is beneficial for power users, less experienced users, and users with disabilities.
+In all cases the behavior benefits both power users and users with disabilities, two groups who need to minimize interaction through optimal keyboard use. Less experienced users stand to benefit as well and the behavior helps faciliate discovery, a process every power user had to go through themselves.
+
+## The proposal
+If couldn't be more simple:
+```
+<input autoselect>
+```
+That's it. Well that's it for you anyway. The mysterious people who implement this stuff in browsers would have some work to do. Although it's not too far off from things they've already implemented:
+```
+<input autofocus>
+```
