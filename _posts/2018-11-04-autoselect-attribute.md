@@ -1,4 +1,4 @@
-You have no doubt used a feature today that is so helpful and ubiquitous that there is actually a proposal to have it added to the HTML spec (it's my proposal!).
+You used a feature today that is so helpful and ubiquitous that there is actually a proposal to have it added to the HTML spec (it's my proposal!).
 
 I'm talking about auto-select. What is this? Let me explain.
 
