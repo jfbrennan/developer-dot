@@ -25,10 +25,10 @@ That's it. Well that's it for you anyway. The mysterious people who implement th
 The handy `autoselect` boolean attribute replaces custom solutions that often look like this:
 ```js
 $('.autoselect')
-    .on('focus', function(){ 
+    .on('focus', () => { 
         if (this.value) this.select(); 
     })
-    .on('blur', function(){ 
+    .on('blur', () => { 
         var tagName = this.nodeName.toLowerCase();
         if (tagName == 'textarea' || (tagName == 'input' && this.type == 'text') ) {
             this.selectionStart = this.selectionEnd;
@@ -39,7 +39,7 @@ Or without jQuery/Zepto:
 ```js
 let autoselects = document.getElementsByClassName('.autoselect');
 
-Array.from(autoselects).forEach(function(el) {
+Array.from(autoselects).forEach((el) => {
   el.addEventListener('focus', () => { 
     if (this.value) this.select(); 
   });
