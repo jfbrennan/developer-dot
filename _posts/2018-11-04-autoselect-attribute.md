@@ -22,5 +22,36 @@ That's it. Well that's it for you anyway. The mysterious people who implement th
 ```
 <input autofocus>
 ```
+That handy boolean attribute replaces custom solutions that often look like this:
+```js
+$('.autoselect')
+    .on('focus', function(){ 
+        if (this.value) this.select(); 
+    })
+    .on('blur', function(){ 
+        var tagName = this.nodeName.toLowerCase();
+        if (tagName == 'textarea' || (tagName == 'input' && this.type == 'text') ) {
+            this.selectionStart = this.selectionEnd;
+        }
+    });
+```
+Or without jQuery/Zepto:
+```js
+let autoselects = document.getElementsByClassName('.autoselect');
+
+Array.from(autoselects).forEach(function(el) {
+  el.addEventListener('focus', () => { 
+    if (this.value) this.select(); 
+  });
+  
+  el.addEventListener('blur', () => { 
+    let tagName = this.nodeName.toLowerCase();
+    if (tagName == 'textarea' || (tagName == 'input' && this.type == 'text') ) {
+      this.selectionStart = this.selectionEnd;
+    }
+  });
+});
+```
+You'd want to actually have an array of valid `type`s to look in since "text" isn't the only but not all are applicable.
 
 If `autoselect` is something you'd like to have available to you, head over to [the proposal](https://github.com/whatwg/html/issues/3627) and upvote. And if you're one of the secret browser people who make this stuff happen, send me a link to your backlog and we can get this party started ;)
