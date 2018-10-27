@@ -22,7 +22,7 @@ That's it. Well that's it for you anyway. The mysterious people who implement th
 ```
 <input autofocus>
 ```
-That handy boolean attribute replaces custom solutions that often look like this:
+The handy `autoselect` boolean attribute replaces custom solutions that often look like this:
 ```js
 $('.autoselect')
     .on('focus', function(){ 
