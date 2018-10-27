@@ -55,6 +55,6 @@ Array.from(autoselects).forEach((el) => {
   });
 });
 ```
-You'd want to actually have an array of valid `type`s to look in since "text" isn't the only one and not all are applicable.
+There'd actually be a lot more code than `this.type == 'text'` since "text" isn't the only one and not all are applicable.
 
 If `autoselect` is something you'd like to have available to you, head over to [the proposal](https://github.com/whatwg/html/issues/3627) and upvote. And if you're one of the secret browser people who make this stuff happen, send me a link to your backlog and I'll help you get the party started ;)
