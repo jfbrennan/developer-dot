@@ -22,3 +22,5 @@ That's it. Well that's it for you anyway. The mysterious people who implement th
 ```
 <input autofocus>
 ```
+
+If `autoselect` is something you'd like to have available to you, head over to [the proposal](https://github.com/whatwg/html/issues/3627) and upvote. And if you're one of the secret browser people who make this stuff happen, send me a link to your backlog and we can get this party started ;)
